@@ -58,19 +58,19 @@
                 <b class="cs_text_slide cs_medium is-visible">
                   <span>100% Happy return policy</span>
                   <span>
-                    <a href="about.html" class="cs_text_slide_btn">Learn More</a>
+                    <a href="{% url 'about' %}" class="cs_text_slide_btn">Learn More</a>
                   </span>
                 </b>
                 <b class="cs_text_slide cs_medium">
                   <span>Big sale offer with 50%</span>
                   <span>
-                    <a href="shop.html" class="cs_text_slide_btn">Learn More</a>
+                    <a href="{% url 'shop' %}" class="cs_text_slide_btn">Learn More</a>
                   </span>
                 </b>
                 <b class="cs_text_slide cs_medium">
                   <span>New arrival item for you</span>
                   <span>
-                    <a href="shop.html" class="cs_text_slide_btn">Learn More</a>
+                    <a href="{% url 'shop' %}" class="cs_text_slide_btn">Learn More</a>
                   </span>
                 </b>
               </span>
@@ -86,87 +86,87 @@
       <div class="container-fluid">
         <div class="cs_main_header_in">
           <div class="cs_main_header_left">
-            <a class="cs_site_branding" href="index.html">
-              <img src="assets/img/logo.svg" alt="Logo">
+            <a class="cs_site_branding" href="{% url 'index' %}">
+              <img src="{% static 'img/logo.svg' %}" alt="Logo">
             </a>
           </div>
           <div class="cs_main_header_center">
             <div class="cs_nav cs_medium">
               <ul class="cs_nav_list">
                 <li class="menu-item-has-children">
-                  <a href="index.html">Home</a>
+                  <a href="{% url 'index' %}">Home</a>
                   <ul>
-                    <li><a href="index.html">Fashion V1</a></li>
-                    <li><a href="home-v2.html">Fashion V2</a></li>
-                    <li><a href="home-v3.html">Jewelry</a></li>
+                    <li><a href="{% url 'index' %}">Fashion V1</a></li>
+                    <li><a href="{% url 'home-v2' %}">Fashion V2</a></li>
+                    <li><a href="{% url 'home-v3' %}">Jewelry</a></li>
                   </ul>
                 </li>
                 <li class="menu-item-has-children">
-                  <a href="shop.html">Product</a>
+                  <a href="{% url 'shop' %}">Product</a>
                   <ul>
-                    <li><a href="shop.html">All Product</a></li>
-                    <li><a href="shop_sidebar.html">Shop Sidebar</a></li>
-                    <li><a href="product_details.html">Product Details</a></li>
+                    <li><a href="{% url 'shop' %}">All Product</a></li>
+                    <li><a href="{% url 'shop_sidebar' %}">Shop Sidebar</a></li>
+                    <li><a href="{% url 'product_details' %}">Product Details</a></li>
                   </ul>
                 </li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
                 <li class="menu-item-has-children">
                   <a href="">Pages</a>
                   <ul>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog_details.html">Blog Details</a></li>
-                    <li><a href="cart.html">Cart</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
-                    <li><a href="success.html">Success</a></li>
-                    <li><a href="wishlist.html">Wishlist</a></li>
+                    <li><a href="{% url  'about' %}">About</a></li>
+                    <li><a href="{% url 'blog_details' %}">Blog Details</a></li>
+                    <li><a href="{% url 'cart' %}">Cart</a></li>
+                    <li><a href="{% url 'checkout' %}">Checkout</a></li>
+                    <li><a href="{% url 'success' %}">Success</a></li>
+                    <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
                   </ul>
                 </li>
                 <li class="menu-item-has-children cs_mega_menu">
                   <a href="">MegaMenu</a>
                   <ul class="cs_mega_wrapper">
                     <li class="menu-item-has-children">
-                      <a href="">Category One</a>
+                      <a href="">For women</a>
                       <ul>
-                        <li><a href="shop.html">Women's Clothing</a></li>
-                        <li><a href="shop.html">Men's Clothing</a></li>
-                        <li><a href="shop.html">Kids' Clothing</a></li>
-                        <li><a href="shop.html">Shoes (Men, Women, Kids)</a></li>
-                        <li><a href="shop.html">Accessories (e.g., hats, scarves)</a></li>
+                        <li><a href="{% url 'shop' %}">Women's Clothing</a></li>
+                        <li><a href="{% url 'shop' %}">Men's Clothing</a></li>
+                        <li><a href="{% url 'shop' %}">Kids' Clothing</a></li>
+                        <li><a href="{% url 'shop' %}">Shoes (Men, Women, Kids)</a></li>
+                        <li><a href="{% url 'shop' %}">Accessories (e.g., hats, scarves)</a></li>
                       </ul>
                     </li>
                     <li class="menu-item-has-children">
-                      <a href="">Category Two</a>
+                      <a href="">For men</a>
                       <ul>
-                        <li><a href="shop.html">Activewear</a></li>
-                        <li><a href="shop.html">Formal Wear</a></li>
-                        <li><a href="shop.html">Casual Wear</a></li>
-                        <li><a href="shop.html">Outerwear (Jackets, Coats)</a></li>
-                        <li><a href="shop.html">Swimwear</a></li>
+                        <li><a  href="{% url 'shop' %}">Activewear</a></li>
+                        <li><a  href="{% url 'shop' %}">Formal Wear</a></li>
+                        <li><a  href="{% url 'shop' %}">Casual Wear</a></li>
+                        <li><a  href="{% url 'shop' %}">Outerwear (Jackets, Coats)</a></li>
+                        <li><a  href="{% url 'shop' %}">Swimwear</a></li>
                       </ul>
                     </li>
                     <li class="menu-item-has-children">
-                      <a href="">Category Three</a>
+                      <a href="">For children</a>
                       <ul>
-                        <li><a href="shop.html">Lingerie and Sleepwear</a></li>
-                        <li><a href="shop.html">Maternity Wear</a></li>
-                        <li><a href="shop.html">Plus Size Clothing</a></li>
-                        <li><a href="shop.html">Sustainable Fashion</a></li>
-                        <li><a href="shop.html">Vintage/Second-hand Clothing</a></li>
+                        <li><a href="{% url 'shop' %}">Lingerie and Sleepwear</a></li>
+                        <li><a href="{% url 'shop' %}">Maternity Wear</a></li>
+                        <li><a href="{% url 'shop' %}">Plus Size Clothing</a></li>
+                        <li><a href="{% url 'shop' %}">Sustainable Fashion</a></li>
+                        <li><a href="{% url 'shop' %}">Vintage/Second-hand Clothing</a></li>
                       </ul>
                     </li>
                     <li class="menu-item-has-children">
-                      <a href="">Category Four</a>
+                      <a href="">Details for look</a>
                       <ul>
-                        <li><a href="shop.html">Sports Apparel</a></li>
-                        <li><a href="shop.html">Workwear</a></li>
-                        <li><a href="shop.html">Designer Clothing</a></li>
-                        <li><a href="shop.html">Seasonal Collections</a></li>
-                        <li><a href="shop.html">Costumes and Cosplay</a></li>
+                        <li><a href="{% url 'shop' %}">Sports Apparel</a></li>
+                        <li><a href="{% url 'shop' %}">Workwear</a></li>
+                        <li><a href="{% url 'shop' %}">Designer Clothing</a></li>
+                        <li><a href="{% url 'shop' %}">Seasonal Collections</a></li>
+                        <li><a href="{% url 'shop' %}">Costumes and Cosplay</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
               </ul>
             </div>
           </div>
@@ -178,7 +178,7 @@
               <a href="#" class="cs_action_icon cs_modal_btn">
                 <i class="fa-regular fa-circle-user"></i>
               </a>
-              <a href="shop.html" class="cs_action_icon">
+              <a href="{% url 'shop' %}" class="cs_action_icon">
                 <span>
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_395_1018)">
@@ -218,119 +218,146 @@
   </header>
   <div class="cs_height_140 cs_height_lg_80"></div>
   <!-- End header -->
-  <!-- Start blog -->
+  <!-- Start market -->
   <section>
     <div class="cs_height_140 cs_height_lg_80"></div>
     <div class="container">
       <div class="row cs_gap_y_70">
         <div class="col-lg-8">
-          <div class="cs_post_details">
-            <div class="cs_post_details_meta cs_fs_14">
-              <span>JANUARY 13, 2023</span>
-              <span>By <a href="#" class="cs_post_subtitle mb-0">Jhon Bentham</a></span>
-            </div>
-            <h1>Mastering the art of wardrobe manage essentials</h1>
-            <img src="assets/img/post_details.jpg" alt="Post Image">
-            <h2>Introduction</h2>
-            <p>In a world where our closets can overflow with clothes, finding a sense of style and simplicity can be a daunting task. That's where the concept of a capsule wardrobe comes to the rescue. This blog will guide you through the art of curating your own capsule wardrobe and mastering the essentials for a more effortless and sustainable approach to fashion.</p>
-            <h2>Chapter 1: What Is a Capsule Wardrobe?</h2>
-            <ul>
-              <li>Define the concept of a capsule wardrobe.</li>
-              <li>Understand the benefits of having a capsule wardrobe, including saving time and money.</li>
-              <li>Explore the history and origin of the term.</li>
-            </ul>
-            <h2>Chapter 2: Building Your Capsule Wardrobe</h2>
-            <ul>
-              <li>Discuss the key components of a capsule wardrobe, such as timeless basics and statement pieces.</li>
-              <li>Provide tips for decluttering your current wardrobe.</li>
-              <li>Explain how to create a versatile, mix-and-match collection of clothing.</li>
-            </ul>
-            <h2>Chapter 3: Choosing Your Essentials</h2>
-            <ul>
-              <li>Break down the must-have pieces for men and women, including classic clothing items like a white shirt, well-fitting jeans, and a versatile blazer.</li>
-              <li>Emphasize the importance of quality over quantity in selecting essentials.</li>
-            </ul>
-            <h2>Chapter 4: Personalizing Your Capsule Wardrobe</h2>
-            <ul>
-              <li>Discuss how to incorporate your unique style into your capsule wardrobe.</li>
-              <li>Offer suggestions for adding pops of color, accessories, and individuality.</li>
-            </ul>
-            <h2>Chapter 5: Maintaining and Updating Your Capsule Wardrobe</h2>
-            <ul>
-              <li>Share tips on how to keep your wardrobe fresh and relevant season after season.</li>
-              <li>Discuss the sustainable aspect of owning fewer, high-quality items.</li>
-            </ul>
-            <h2>Conclusion:</h2>
-            <p>Mastering the art of wardrobe essentials through a capsule wardrobe is not only a game-changer for your style but also a mindful approach to fashion. It's about curating a collection that truly reflects your personality and values while simplifying your daily decisions. <br><br>Join us on this journey of style and simplicity as we explore the world of capsule wardrobes. Your wardrobe will thank you, and you'll discover that less truly can be more when it comes to fashion.</p>
-          </div>
-          <div class="cs_height_40 cs_height_lg_40"></div>
-          <div class="cs_post_details_bottom">
-            <div class="cs_post_details_tags_wrap">
-              <h4 class="cs_fs_16">Tags: </h4>
-              <div class="cs_post_details_tags">
-                <a href="#" class="tag-cloud-link">Fashion, </a>
-                <a href="#" class="tag-cloud-link"> New, </a>
-                <a href="#" class="tag-cloud-link">Trend</a>
+        <div class="row cs_gap_y_80">
+          <div class="col-md-6">
+            <div class="cs_post cs_style_1">
+              <a href="blog_details.html" class="cs_post_thumb cs_zoom">
+                <img src="assets/img/post1.jpg" alt="Post Image" class="cs_zoom_in w-100">
+              </a>
+              <div class="cs_post_meta">
+                <p class="cs_post_meta_info mb-0 cs_fs_14">JANUARY 13, 2023</p>
               </div>
-            </div>
-            <div class="cs_post_details_share_wrap">
-              <h4 class="cs_fs_16">Share: </h4>
-              <div class="cs_post_details_share">
-                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="cs_height_80 cs_height_lg_60"></div>
-          <div class="cs_author_card">
-            <div class="cs_author_thumb">
-              <img src="assets/img/author.png" alt="Author">
-            </div>
-            <div class="cs_author_info">
-              <h3 class="cs_author_title cs_fs_21 cs_semibold">Jhon Bentham</h3>
-              <p>Hi, my name is Anthony kuber. I am artist and fashion designer. <br>I love to travel and writing blogging.</p>
-              <div class="cs_author_social">
-                <a href="#" class="cs_center">
-                  <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="#" class="cs_center">
-                  <i class="fa-brands fa-twitter"></i>
-                </a>
-                <a href="#" class="cs_center">
-                <i class="fa-brands fa-youtube"></i>
+              <div class="cs_post_info">
+                <h3 class="cs_post_title cs_fs_28 cs_semibold">
+                  <a href="blog_details.html">Mastering the art of wardrobe manage essentials</a>
+                </h3>
+                <p class="cs_post_subtitle">Discover the key to simplifying your style with a capsule wardrobe. Learn how to curate a collection of versatile pieces that will elevate your fashion game...</p>
+                <a href="blog_details.html" class="cs_post_btn cs_fs_16 cs_medium cs_primary_color">
+                  <span>Read More</span>
+                  <span class="cs_btn_arrow cs_accent_color">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </span>
                 </a>
               </div>
             </div>
           </div>
-          <div class="cs_height_70 cs_height_lg_60"></div>
-          <div class="cs_comment_heading">
-            <h2 class="cs_fs_37 cs_semibold mb-0">Write your opinion</h2>
-            <div class="cs_height_10 cs_height_lg_10"></div>
-            <p class="cs_section_subtitle mb-0">Your email address will not be published. Required fields are marked *</p>
-            <div class="cs_height_35 cs_height_lg_35"></div>
-          </div>
-          <form class="row cs_gap_y_24">
-            <div class="col-lg-12">
-              <textarea cols="30" rows="7" class="cs_form_field" placeholder="Write Your Comment *"></textarea>
-            </div>
-            <div class="col-lg-6">
-              <input type="text" class="cs_form_field" placeholder="Your name *">
-            </div>
-            <div class="col-lg-6">
-              <input type="text" class="cs_form_field" placeholder="Your email *">
-            </div>
-            <div class="col-lg-12">
-              <div class="form_check">
-                <input class="form-check-input" id="check" type="checkbox">
-                <label class="form-check-label m-0" for="check">
-                Save my name, email, and website in this browser for the next time I comment.</label>
+          <div class="col-md-6">
+            <div class="cs_post cs_style_1">
+              <a href="blog_details.html" class="cs_post_thumb cs_zoom">
+                <img src="assets/img/post2.jpg" alt="Post Image" class="cs_zoom_in w-100">
+              </a>
+              <div class="cs_post_meta">
+                <p class="cs_post_meta_info mb-0 cs_fs_14">MARCH 18, 2023</p>
+              </div>
+              <div class="cs_post_info">
+                <h3 class="cs_post_title cs_fs_28 cs_semibold">
+                  <a href="blog_details.html">Redefining style with eco-friendly choices</a>
+                </h3>
+                <p class="cs_post_subtitle">Dive into the world of sustainable fashion and explore how your choices can have a positive impact on the planet. From eco-friendly fabrics to ethical brands...</p>
+                <a href="blog_details.html" class="cs_post_btn cs_fs_16 cs_medium cs_primary_color">
+                  <span>Read More</span>
+                  <span class="cs_btn_arrow cs_accent_color">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </span>
+                </a>
               </div>
             </div>
-            <div class="col-lg-12">
-              <button class="cs_btn cs_style_1 cs_fs_16 cs_medium" type="submit">Post Comment</button>
+          </div>
+          <div class="col-md-6">
+            <div class="cs_post cs_style_1">
+              <a href="blog_details.html" class="cs_post_thumb cs_zoom">
+                <img src="assets/img/post3.jpg" alt="Post Image" class="cs_zoom_in w-100">
+              </a>
+              <div class="cs_post_meta">
+                <p class="cs_post_meta_info mb-0 cs_fs_14">JANUARY 13, 2023</p>
+              </div>
+              <div class="cs_post_info">
+                <h3 class="cs_post_title cs_fs_28 cs_semibold">
+                  <a href="blog_details.html">Tips for mixing and matching patterns</a>
+                </h3>
+                <p class="cs_post_subtitle">Pattern mixing can be a style statement, but it can also be intimidating. Learn the art of combining different patterns and prints to create unique and eye-catching outfits....</p>
+                <a href="blog_details.html" class="cs_post_btn cs_fs_16 cs_medium cs_primary_color">
+                  <span>Read More</span>
+                  <span class="cs_btn_arrow cs_accent_color">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </span>
+                </a>
+              </div>
             </div>
-          </form>
+          </div>
+          <div class="col-md-6">
+            <div class="cs_post cs_style_1">
+              <a href="blog_details.html" class="cs_post_thumb cs_zoom">
+                <img src="assets/img/post5.jpg" alt="Post Image" class="cs_zoom_in w-100">
+              </a>
+              <div class="cs_post_meta">
+                <p class="cs_post_meta_info mb-0 cs_fs_14">MARCH 18, 2023</p>
+              </div>
+              <div class="cs_post_info">
+                <h3 class="cs_post_title cs_fs_28 cs_semibold">
+                  <a href="blog_details.html">From workwear to wardrobe staple</a>
+                </h3>
+                <p class="cs_post_subtitle">Take a journey through the history of denim and discover how it transformed from workwear into a fashion icon. Explore the latest denim trends...</p>
+                <a href="blog_details.html" class="cs_post_btn cs_fs_16 cs_medium cs_primary_color">
+                  <span>Read More</span>
+                  <span class="cs_btn_arrow cs_accent_color">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="cs_post cs_style_1">
+              <a href="blog_details.html" class="cs_post_thumb cs_zoom">
+                <img src="assets/img/post6.jpg" alt="Post Image" class="cs_zoom_in w-100">
+              </a>
+              <div class="cs_post_meta">
+                <p class="cs_post_meta_info mb-0 cs_fs_14">JANUARY 13, 2023</p>
+              </div>
+              <div class="cs_post_info">
+                <h3 class="cs_post_title cs_fs_28 cs_semibold">
+                  <a href="blog_details.html">Exploring the World of Little Black Dresses</a>
+                </h3>
+                <p class="cs_post_subtitle">The Little Black Dress (LBD) has been a fashion staple for decades. Discover the history, versatility, and the magic of the LBD in this timeless fashion piece...</p>
+                <a href="blog_details.html" class="cs_post_btn cs_fs_16 cs_medium cs_primary_color">
+                  <span>Read More</span>
+                  <span class="cs_btn_arrow cs_accent_color">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="cs_post cs_style_1">
+              <a href="blog_details.html" class="cs_post_thumb cs_zoom">
+                <img src="assets/img/post7.jpg" alt="Post Image" class="cs_zoom_in w-100">
+              </a>
+              <div class="cs_post_meta">
+                <p class="cs_post_meta_info mb-0 cs_fs_14">MARCH 18, 2023</p>
+              </div>
+              <div class="cs_post_info">
+                <h3 class="cs_post_title cs_fs_28 cs_semibold">
+                  <a href="blog_details.html">Elevate your fashion game with statement jewelry</a>
+                </h3>
+                <p class="cs_post_subtitle">Learn how to choose, style, and wear bold accessories that express your unique personality and complete your look.accessorize Your Way to...</p>
+                <a href="blog_details.html" class="cs_post_btn cs_fs_16 cs_medium cs_primary_color">
+                  <span>Read More</span>
+                  <span class="cs_btn_arrow cs_accent_color">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
         <div class="col-lg-4">
           <div class="cs_blog_sidebar">
@@ -404,9 +431,9 @@
         </div>
       </div>
     </div>
-    <div class="cs_height_140 cs_height_lg_80"></div>
+    <div class="cs_height_135 cs_height_lg_80"></div>
   </section>
-  <!-- End blog -->
+  <!-- End market -->
   <!-- Start instagram -->
   <div class="cs_instagram">
     <a href="https://www.instagram.com/" target="_blank" class="position-relative cs_instagram_item">
@@ -536,7 +563,7 @@
   <!-- End footer -->
   <!-- Start scroll up button -->
   <div class="cs_scrollup_btn" id="cs_scroll_btn">
-      <i class="fa-solid fa-arrow-up"></i>
+    <i class="fa-solid fa-arrow-up"></i>
   </div>
   <!-- End scroll up button -->
   <!-- All script files -->
