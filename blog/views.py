@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpRequest
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
@@ -13,6 +13,21 @@ def index(request):
 def about(request):
     return render(request, 'market/about.html')
 
+
+def contact(request):
+    return render(request, 'market/contact.html')
+
+
+def blog(request):
+    return HttpResponse()
+
+
+def blog(request):
+    return HttpResponse()
+
+
+def blog(request):
+    return HttpResponse()
 
 # def index(request):
 #     return HttpResponse('home page')

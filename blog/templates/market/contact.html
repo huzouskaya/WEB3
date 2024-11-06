@@ -87,16 +87,16 @@
         <div class="cs_main_header_in">
           <div class="cs_main_header_left">
             <a class="cs_site_branding" href="index.html">
-              <img src="assets/img/logo.svg" alt="Logo">
+              <img src="{% static 'img/logo.svg' %}" alt="Logo">
             </a>
           </div>
           <div class="cs_main_header_center">
             <div class="cs_nav cs_medium">
               <ul class="cs_nav_list">
                 <li class="menu-item-has-children">
-                  <a href="index.html">Home</a>
+                  <a href="{% url 'index' %}">Home</a>
                   <ul>
-                    <li><a href="index.html">Fashion V1</a></li>
+                    <li><a href="{% url 'index' %}">Fashion V1</a></li>
                     <li><a href="home-v2.html">Fashion V2</a></li>
                     <li><a href="home-v3.html">Jewelry</a></li>
                   </ul>
@@ -113,7 +113,7 @@
                 <li class="menu-item-has-children">
                   <a href="">Pages</a>
                   <ul>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="blog_details.html">Blog Details</a></li>
                     <li><a href="cart.html">Cart</a></li>
                     <li><a href="checkout.html">Checkout</a></li>
@@ -166,7 +166,7 @@
                     </li>
                   </ul>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
               </ul>
             </div>
           </div>
