@@ -54,7 +54,7 @@ h4,
 h5,
 h6 {
   clear: both;
-  color: #070707;
+  color: #ffcc00;
   padding: 0;
   margin: 0 0 20px 0;
   font-weight: 600;
@@ -1671,7 +1671,7 @@ hr {
 }
 
 .cs_primary_bg {
-  background-color: #070707;
+  background-color: #ffcc00;
 }
 
 .cs_secondary_bg {
