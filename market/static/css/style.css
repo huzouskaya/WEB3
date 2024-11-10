@@ -2365,7 +2365,7 @@ End Review
   content: "";
   width: 7px;
   height: 7px;
-  background-color: rgba(94, 94, 94, 0.5);
+  background-color: rgba(252, 148, 73, 0.5);
   border-radius: 50%;
   position: absolute;
   left: 50%;
@@ -2377,11 +2377,11 @@ End Review
 }
 .cs_pagination.cs_style_1 .slick-dots .slick-active,
 .cs_pagination.cs_style_2 .slick-dots .slick-active {
-  border: 1px solid #070707;
+  border: 1px solid #fc9449;
 }
 .cs_pagination.cs_style_1 .slick-dots .slick-active::after,
 .cs_pagination.cs_style_2 .slick-dots .slick-active::after {
-  background-color: #070707;
+  background-color: #fc9449;
 }
 
 .cs_pagination.cs_style_2 {
@@ -3168,7 +3168,7 @@ Slider arrow design
   border-color: #fc5f49;
 }
 .cs_site_header.cs_style_1.cs_color_1.cs_gescout_show {
-  background-color: #070707;
+  background-color: #fc5f49;
 }
 
 @media screen and (max-width: 1199px) {
@@ -4005,9 +4005,9 @@ Slider arrow design
 ----------------------------------------------------------------*/
 .cs_btn.cs_style_1 {
   display: inline-block;
-  background-color: #070707;
+  background-color: #fc5f49;
   color: #ffffff;
-  border: 2px solid #070707;
+  border: 2px solid #fc5f49;
   padding: 13px 32px;
   text-align: center;
 }
