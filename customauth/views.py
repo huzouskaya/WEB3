@@ -2,18 +2,33 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from .models import MyUser 
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.forms import UserCreationForm
+from .forms import UserRegistrationForm, UserProfileForm
+
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth.decorators import login_required
+
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
+        user_form = UserRegistrationForm(request.POST)
+        profile_form = UserProfileForm(request.POST)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save(commit=False)
+            user.set_password(user_form.cleaned_data['password'])
+            user.save()
+            profile = profile_form.save(commit=False)
+            profile.user = user
+            profile.save()
             login(request, user)
             return redirect('index')
+
     else:
-        form = UserCreationForm()
-    return render(request, 'customauth/register.html', {'form': form})
+        user_form = UserRegistrationForm()
+        profile_form = UserProfileForm()
+
+    return render(request, 'register.html', {'user_form': user_form, 'profile_form': profile_form})
 
 
 def login_view(request):
@@ -32,3 +47,21 @@ def login_view(request):
         form = AuthenticationForm()
 
     return render(request, 'customauth/login.html', {'form': form})
+
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            return redirect('password_change_done')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'change_password.html', {'form': form})
+
+
+@login_required
+def password_change_done(request):
+    return render(request, 'password_change_done.html')

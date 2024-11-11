@@ -2,11 +2,14 @@
 {% load static %}
 
 {% block content %}
-    <h2>Регистрация</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Зарегистрироваться</button>
-    </form>
-    <p>Уже есть аккаунт? <a href="{% url 'login' %}" >Войти</a></p>
+    <div class="align-items-center">
+        <h2>Регистрация</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+            <button type="submit" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Зарегистрироваться</button>
+        </form>
+        <p>Уже есть аккаунт? <a href="{% url 'login' %}" >Войти</a></p>
+    </div>
 {% endblock %}

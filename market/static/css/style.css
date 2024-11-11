@@ -7327,3 +7327,7 @@ Pavigation styling
     min-height: 400px;
   }
 }/*# sourceMappingURL=style.css.map */
+
+.align-items-center {
+  align-items: center;
+}
