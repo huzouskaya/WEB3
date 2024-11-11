@@ -6,8 +6,13 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 
 
-def index(request):
-    return render(request, 'market/index.html')
+def index(request) -> HttpResponse:
+    context: dict[str, str] = {
+        'title': 'Лучшие карнавальные костюмы', #на месте замены пишем {{title}} - placeholder
+        'content': 'Делаем ваш праздник ярче!'
+    }
+
+    return render(request, 'market/index.html', context)
 
 
 def home_v2(request):
