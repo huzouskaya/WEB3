@@ -1,0 +1,12 @@
+{% extends "market/base.html" %}
+{% load static %}
+
+{% block content %}
+    <h2>Вход</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Войти</button>
+    </form>
+    <p>Нет аккаунта? <a href="{% url 'register' %}">Зарегистрироваться</a></p>
+{% endblock %}
