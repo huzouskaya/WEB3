@@ -22,12 +22,6 @@
   </section>
   <!-- End Cart Page Heading -->
   <!-- Start Cart -->
-  {% for item in items %}
-      <li> {{ item.product.name }} - {{ item.quantity }} - {{ item.product.price }} <br>
-      <a href="{% url 'remove_from_cart' item.id %}">Удалить</a></li>
-  {% empty %}
-      <li>Корзина пуста.</li>
-  {% endfor %}
   <div class="container">
     <div class="row">
       <div class="col-xl-8">
@@ -61,7 +55,12 @@
                 </td>
                 <td>${{ item.product.price|floatformat:2|multiply:item.quantity }}</td>
                 <td class="text-center">
-                  <button class="cs_cart-table-close"><i class="fa-solid fa-xmark"></i></button>
+                  <form action="{% url 'remove_from_cart' item.id %}" method="POST" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="cs_cart-table-close" title="Удалить">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </form>
                 </td>
               </tr>
               {% endfor %}
