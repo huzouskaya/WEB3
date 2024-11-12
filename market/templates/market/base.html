@@ -8,7 +8,7 @@
     <meta name="author" content="Laralink">
     <title>ВКостюме - карнавальные костюмы, грим, декорации, спецэффеткы</title>
     <!-- Favicon -->
-   <link rel="shortcut icon" href="{% static 'img/favicon.svg' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.svg' %}">
     <!-- Plugins css -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
@@ -59,19 +59,19 @@
                   <b class="cs_text_slide cs_medium is-visible">
                     <span>100% гарантия качества</span>
                     <span>
-                      <a href="{% url 'about' %}" class="cs_text_slide_btn">Узнать больше</a>
+                      <a href="{% url 'market:about' %}" class="cs_text_slide_btn">Узнать больше</a>
                     </span>
                   </b>
                   <b class="cs_text_slide cs_medium">
                     <span>Скидки до 50%</span>
                     <span>
-                      <a href="{% url 'shop' %}" class="cs_text_slide_btn">Узнать больше</a>
+                      <a href="{% url 'shop:index' %}" class="cs_text_slide_btn">Узнать больше</a>
                     </span>
                   </b>
                   <b class="cs_text_slide cs_medium">
                     <span>Регулярные поступления</span>
                     <span>
-                      <a href="{% url 'shop' %}" class="cs_text_slide_btn">Узнать больше</a>
+                      <a href="{% url 'shop:index' %}" class="cs_text_slide_btn">Узнать больше</a>
                     </span>
                   </b>
                 </span>
@@ -87,71 +87,71 @@
         <div class="container-fluid">
           <div class="cs_main_header_in">
             <div class="cs_main_header_left">
-              <a class="cs_site_branding" href="{% url 'index' %}">
+              <a class="cs_site_branding" href="{% url 'market:index' %}">
                 <img src="{% static 'img/logo.png' %}" alt="Logo" width="180px">
               </a>
             </div>
             <div class="cs_main_header_center">
               <div class="cs_nav cs_medium">
                 <ul class="cs_nav_list">
-                  <li><a href="{% url 'index' %}">Главная</a></li>
+                  <li><a href="{% url 'market:index' %}">Главная</a></li>
                   <li class="menu-item-has-children cs_mega_menu">
                     <a href="">Каталог</a>
                     <ul class="cs_mega_wrapper">
                       <li class="menu-item-has-children">
-                        <a href="{% url 'shop' %}">Все костюмы</a>
+                        <a href="{% url 'shop:index' %}">Все костюмы</a>
                         <ul>
-                          <li><a href="{% url 'shop' %}">Женские костюмы</a></li>
-                          <li><a href="{% url 'shop' %}">Мужские костюмы</a></li>
-                          <li><a href="{% url 'shop' %}">Детские костюмы</a></li>
-                          <li><a href="{% url 'shop' %}">Костюмы для малышей</a></li>
+                          <li><a href="{% url 'shop:index' %}">Женские костюмы</a></li>
+                          <li><a href="{% url 'shop:index' %}">Мужские костюмы</a></li>
+                          <li><a href="{% url 'shop:index' %}">Детские костюмы</a></li>
+                          <li><a href="{% url 'shop:index' %}">Костюмы для малышей</a></li>
                         </ul>
                       </li>
                       <li class="menu-item-has-children">
                         <a href="">Тематические</a>
                         <ul>
-                          <li><a  href="{% url 'shop' %}">Известные персонажи</a></li>
-                          <li><a  href="{% url 'shop' %}">Костюмы на Хеллоуин</a></li>
-                          <li><a  href="{% url 'shop' %}">Костюмы животных</a></li>
-                          <li><a  href="{% url 'shop' %}">Национальные костюмы</a></li>
-                          <li><a  href="{% url 'shop' %}">Новогодние костюмы</a></li>
-                          <li><a  href="{% url 'shop' %}">Надувные костюмы</a></li>
-                          <li><a  href="{% url 'shop' %}">Парные костюмы</a></li>
-                          <li><a  href="{% url 'shop' %}">Костюмы клоунов</a></li>
-                          <li><a  href="{% url 'shop' %}">Исторические костюмы</a></li>
+                          <li><a  href="{% url 'shop:index' %}">Известные персонажи</a></li>
+                          <li><a  href="{% url 'shop:index' %}">Костюмы на Хеллоуин</a></li>
+                          <li><a  href="{% url 'shop:index' %}">Костюмы животных</a></li>
+                          <li><a  href="{% url 'shop:index' %}">Национальные костюмы</a></li>
+                          <li><a  href="{% url 'shop:index' %}">Новогодние костюмы</a></li>
+                          <li><a  href="{% url 'shop:index' %}">Надувные костюмы</a></li>
+                          <li><a  href="{% url 'shop:index' %}">Парные костюмы</a></li>
+                          <li><a  href="{% url 'shop:index' %}">Костюмы клоунов</a></li>
+                          <li><a  href="{% url 'shop:index' %}">Исторические костюмы</a></li>
                         </ul>
                       </li>
                       <li class="menu-item-has-children">
                         <a href="">Аксессуары</a>
                         <ul>
-                          <li><a href="{% url 'shop' %}">Маски</a></li>
-                          <li><a href="{% url 'shop' %}">Парики и бороды</a></li>
-                          <li><a href="{% url 'shop' %}">Головные уборы</a></li>
-                          <li><a href="{% url 'shop' %}">Очки</a></li>
-                          <li><a href="{% url 'shop' %}">Перчатки</a></li>
-                          <li><a href="{% url 'shop' %}">Крылья</a></li>
-                          <li><a href="{% url 'shop' %}">Плащи и накидки</a></li>
+                          <li><a href="{% url 'shop:index' %}">Маски</a></li>
+                          <li><a href="{% url 'shop:index' %}">Парики и бороды</a></li>
+                          <li><a href="{% url 'shop:index' %}">Головные уборы</a></li>
+                          <li><a href="{% url 'shop:index' %}">Очки</a></li>
+                          <li><a href="{% url 'shop:index' %}">Перчатки</a></li>
+                          <li><a href="{% url 'shop:index' %}">Крылья</a></li>
+                          <li><a href="{% url 'shop:index' %}">Плащи и накидки</a></li>
                         </ul>
                       </li>
                       <li class="menu-item-has-children">
                         <a href="">Грим и декорации</a>
                         <ul>
-                          <li><a href="{% url 'shop' %}">Театральный грим</a></li>
-                          <li><a href="{% url 'shop' %}">Аквагрим</a></li>
-                          <li><a href="{% url 'shop' %}">Клыки и зубы</a></li>
-                          <li><a href="{% url 'shop' %}">Цветные контактные линзы</a></li>
-                          <li><a href="{% url 'shop' %}">Искусственный снег</a></li>
-                          <li><a href="{% url 'shop' %}">Искусственная кровь</a></li>
-                          <li><a href="{% url 'shop' %}">Световые декорации</a></li>
-                          <li><a href="{% url 'shop' %}">Декорации на Хеллоуин</a></li>
-                          <li><a href="{% url 'shop' %}">Декорации на Новый год</a></li>
-                          <li><a href="{% url 'shop' %}">Конфетти</a></li>
+                          <li><a href="{% url 'shop:index' %}">Театральный грим</a></li>
+                          <li><a href="{% url 'shop:index' %}">Аквагрим</a></li>
+                          <li><a href="{% url 'shop:index' %}">Клыки и зубы</a></li>
+                          <li><a href="{% url 'shop:index' %}">Цветные контактные линзы</a></li>
+                          <li><a href="{% url 'shop:index' %}">Искусственный снег</a></li>
+                          <li><a href="{% url 'shop:index' %}">Искусственная кровь</a></li>
+                          <li><a href="{% url 'shop:index' %}">Световые декорации</a></li>
+                          <li><a href="{% url 'shop:index' %}">Декорации на Хеллоуин</a></li>
+                          <li><a href="{% url 'shop:index' %}">Декорации на Новый год</a></li>
+                          <li><a href="{% url 'shop:index' %}">Конфетти</a></li>
                         </ul>
                       </li>
                     </ul>
                   </li>
-                  <li><a href="{% url  'about' %}">О нас</a></li>
-                  <li><a href="{% url 'contact' %}">Контакты</a></li>
+                  <li><a href="{% url  'market:about' %}">О нас</a></li>
+                  <li><a href="{% url 'market:contact' %}">Контакты</a></li>
                 </ul>
               </div>
             </div>
@@ -163,7 +163,7 @@
                 <a href="#" class="cs_action_icon cs_modal_btn">
                   <i class="fa-regular fa-circle-user"></i>
                 </a>
-                <a href="{% url 'shop' %}" class="cs_action_icon">
+                <a href="{% url 'shop:index' %}" class="cs_action_icon">
                   <span>
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_395_1018)">
@@ -226,9 +226,9 @@
                   <div class="cs_footer_widget cs_menu_widget">
                     <h3 class="cs_footer_widget_title cs_fs_21 cs_semibold">Полезные страницы</h3>
                     <ul>
-                      <li><a href="{% url 'about' %}">О нас</a></li>
-                      <li><a href="{% url 'shop' %}">Товары</a></li>
-                      <li><a href="{% url 'contact' %}">Контакты</a></li>
+                      <li><a href="{% url 'market:about' %}">О нас</a></li>
+                      <li><a href="{% url 'shop:index' %}">Товары</a></li>
+                      <li><a href="{% url 'market:contact' %}">Контакты</a></li>
                     </ul>
                   </div>
                 </div>
