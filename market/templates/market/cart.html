@@ -1,5 +1,6 @@
 {% extends "market/base.html" %}
 {% load static %}
+{% load custom_filters %}
 
 {% block content %}
   <!-- Start Cart Page Heading -->
@@ -21,6 +22,12 @@
   </section>
   <!-- End Cart Page Heading -->
   <!-- Start Cart -->
+  {% for item in items %}
+      <li> {{ item.product.name }} - {{ item.quantity }} - {{ item.product.price }} <br>
+      <a href="{% url 'remove_from_cart' item.id %}">Удалить</a></li>
+  {% empty %}
+      <li>Корзина пуста.</li>
+  {% endfor %}
   <div class="container">
     <div class="row">
       <div class="col-xl-8">
@@ -36,46 +43,28 @@
               </tr>
             </thead>
             <tbody>
+              {% for item in cart_items %}
               <tr>
-                <td>
+                <td>   
                   <div class="cs_cart_table_media">
-                    <img src="assets/img/cart-product-1.jpeg" alt="Thumb">
-                    <h3>Pure black cotton men T-shirt</h3>
+                    <img src="{{ item.product.image.url }}" alt="Thumb">
+                    <h3>{{ item.product.name }}</h3>
                   </div>
                 </td>
-                <td>$205.00</td>
+                <td>${{ item.product.price }}</td>
                 <td>
                   <div class="cs_quantity">
                     <button class="cs_quantity_btn cs_increment"><i class="fa-solid fa-angle-up"></i></button>
-                    <span class="cs_quantity_input">1</span>
+                    <span class="cs_quantity_input">{{ item.quantity }}</span>
                     <button class="cs_quantity_btn cs_decrement"><i class="fa-solid fa-angle-down"></i></button>
                   </div>
                 </td>
-                <td>$205.00</td>
+                <td>${{ item.product.price|floatformat:2|multiply:item.quantity }}</td>
                 <td class="text-center">
                   <button class="cs_cart-table-close"><i class="fa-solid fa-xmark"></i></button>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <div class="cs_cart_table_media">
-                    <img src="assets/img/cart-product-2.jpeg" alt="Thumb">
-                    <h3>Satin silk sleeping were</h3>
-                  </div>
-                </td>
-                <td>$550.00</td>
-                <td>
-                  <div class="cs_quantity">
-                    <button class="cs_quantity_btn cs_increment"><i class="fa-solid fa-angle-up"></i></button>
-                    <span class="cs_quantity_input">1</span>
-                    <button class="cs_quantity_btn cs_decrement"><i class="fa-solid fa-angle-down"></i></button>
-                  </div>
-                </td>
-                <td>$550.00</td>
-                <td class="text-center">
-                  <button class="cs_cart-table-close"><i class="fa-solid fa-xmark"></i></button>
-                </td>
-              </tr>
+              {% endfor %}
             </tbody>
           </table>
         </div>
@@ -95,11 +84,11 @@
               <tbody>
                 <tr>
                   <td>Subtotal</td>
-                  <td class="text-end">$605.00</td>
+                  <td class="text-end">${{ total }}</td>
                 </tr>
                 <tr>
                   <td>Total</td>
-                  <td class="text-end">$605.00</td>
+                  <td class="text-end">${{ total }}</td>
                 </tr>
               </tbody>
             </table>

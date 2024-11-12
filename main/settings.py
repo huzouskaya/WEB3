@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'market',
     'customauth',
+    'sberbank',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +129,14 @@ STATIC_ROOT = BASE_DIR / 'static'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'customauth.MyUser'
+
+MERCHANTS = {
+  '%merchant_id%': {
+    'username': '%merchant_username%',
+    'password': '%merchant_password%',
+    'success_url': 'http://ваш.домен/sberbank/payment/success',
+    'fail_url': 'http://ваш.домен/sberbank/payment/fail',
+    'app_success_url': 'http://ваш.домен/payment/success',
+    'app_fail_url': 'http://ваш.домен/payment/fail',
+  }
+}
