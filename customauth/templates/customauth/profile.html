@@ -1,0 +1,27 @@
+{% extends "market/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="align-items-center">
+        <h2>Профиль пользователя</h2>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Дата рождения:</strong> {{ user.date_of_birth }}</p>
+
+        {% if user.userprofile %}
+            <h3>Дополнительная информация</h3>
+            <p><strong>Биография:</strong> {{ user.userprofile.bio }}</p>
+            <p><strong>Местоположение:</strong> {{ user.userprofile.location }}</p>
+            <p><strong>Дата рождения (из профиля):</strong> {{ user.userprofile.birth_date }}</p>
+        {% else %}
+            <p>Дополнительная информация отсутствует.</p>
+        {% endif %}
+
+        <form method="post" action="{% url 'logout' %}">
+
+            {% csrf_token %}
+
+            <button type="submit" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Выйти</button>
+
+        </form>
+    </div>
+{% endblock %}

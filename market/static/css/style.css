@@ -54,7 +54,7 @@ h4,
 h5,
 h6 {
   clear: both;
-  color: #ffcc00;
+  color: #070707;
   padding: 0;
   margin: 0 0 20px 0;
   font-weight: 600;
@@ -1671,7 +1671,7 @@ hr {
 }
 
 .cs_primary_bg {
-  background-color: #ffcc00;
+  background-color: #070707;
 }
 
 .cs_secondary_bg {
@@ -7327,7 +7327,3 @@ Pavigation styling
     min-height: 400px;
   }
 }/*# sourceMappingURL=style.css.map */
-
-.align-items-center {
-  align-items: center;
-}
