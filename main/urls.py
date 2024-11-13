@@ -6,5 +6,6 @@ urlpatterns = [
     path('', include('market.urls')),
     path('', include('customauth.urls')),
     path('/sberbank', include('sberbank.urls')),
-    path('', include('cart.urls'))
+    path('', include('cart.urls')),
+    path('', include('goods.urls')),
 ]

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'customauth',
     'sberbank',
     'cart',
+    'goods',
 ]
 
 MIDDLEWARE = [
