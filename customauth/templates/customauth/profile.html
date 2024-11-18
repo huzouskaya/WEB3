@@ -2,26 +2,63 @@
 {% load static %}
 
 {% block content %}
+    {% if user.is_authenticated and not user.email_verified %}
+    <div id="email-verification-alert" style="background-color: rgb(124, 9, 9); color: white; padding: 10px; position: fixed; top: 10px; right: 10px; z-index: 1000;">
+        Ваша электронная почта не подтверждена. Пожалуйста, подтвердите её!
+        <button onclick="closeAlert()" style="margin-left: 10px; background: none; border: none; color: white; cursor: pointer;">×</button>
+    </div>
+    <script>
+        // Закрыть уведомление через 15 секунд
+        setTimeout(function() {
+            document.getElementById('email-verification-alert').style.display = 'none';
+        }, 15000);
+
+        function closeAlert() {
+            document.getElementById('email-verification-alert').style.display = 'none';
+        }
+    </script>
+    {% endif %}
     <div class="align-items-center">
         <h2>Профиль пользователя</h2>
+
+        <!-- {% if user.userprofile and user.userprofile.avatar %}
+            <div class="profile-avatar">
+                <img src="{{ user.userprofile.avatar.url }}" alt="Аватар" class="avatar">
+            </div>
+        {% else %}
+            <p>Аватар не установлен.</p>
+        {% endif %} -->
+
+        <!-- <form method="post" action="{% url 'customauth:resend_verification_email' %}">
+            {% csrf_token %}
+            <input type="hidden" name="email" value="{{ user.email }}">
+            <button type="submit" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Отправить токен подтверждения снова</button>
+        </form> -->
+
+        {% if not user.email_verified %}
+            <form method="POST" action="{% url 'resend_verification_email' %}">
+                {% csrf_token %}
+                <input type="email" name="email" value="{{ user.email }}" required>
+                <button type="submit">Повторно отправить токен подтверждения</button>
+            </form>
+        {% endif %}
+
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p><strong>Дата рождения:</strong> {{ user.date_of_birth }}</p>
 
         {% if user.userprofile %}
             <h3>Дополнительная информация</h3>
-            <p><strong>Биография:</strong> {{ user.userprofile.bio }}</p>
-            <p><strong>Местоположение:</strong> {{ user.userprofile.location }}</p>
-            <p><strong>Дата рождения (из профиля):</strong> {{ user.userprofile.birth_date }}</p>
+            <p><strong>Био:</strong> {{ user.userprofile.bio }}</p>
+            <p><strong>Адрес доставки:</strong> {{ user.userprofile.location }}</p>
         {% else %}
             <p>Дополнительная информация отсутствует.</p>
         {% endif %}
 
-        <form method="post" action="{% url 'logout' %}">
+        <a href="{% url 'customauth:edit_profile' %}">Редактировать профиль</a>
 
+        <form method="post" action="{% url 'customauth:logout' %}">
             {% csrf_token %}
-
             <button type="submit" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Выйти</button>
-
         </form>
     </div>
 {% endblock %}

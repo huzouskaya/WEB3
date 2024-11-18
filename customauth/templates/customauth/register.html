@@ -9,6 +9,6 @@
             {{ form.as_p }}
             <button type="submit" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Зарегистрироваться</button>
         </form>
-        <p>Уже есть аккаунт? <a href="{% url 'login' %}">Войти</a></p>
+        <p>Уже есть аккаунт? <a href="{% url 'customauth:login' %}">Войти</a></p>
     </div>
 {% endblock %}

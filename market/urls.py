@@ -1,19 +1,21 @@
 from django.urls import path
-from . import views
+from market import views
+
+app_name = 'market'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('home-v2/', views.home_v2, name='home-v2'),
-    path('home-v3/', views.home_v3, name='home-v3'),
+    # path('home-v2/', views.home_v2, name='home-v2'),
+    # path('home-v3/', views.home_v3, name='home-v3'),
 
-    path('shop/', views.shop, name='shop'),
+    #path('shop/', views.shop, name='shop'),
     path('shop_sidebar/', views.shop_sidebar, name='shop_sidebar'),
-    path('product_details/', views.product_details, name='product_details'),
+    #path('product_details/', views.product_details, name='product_details'),
 
-    path('blog/', views.blog, name='blog'),
+    # path('blog/', views.blog, name='blog'),
 
     path('about/', views.about, name='about'),
-    path('blog_details/', views.blog_details, name='blog_details'),
+    # path('blog_details/', views.blog_details, name='blog_details'),
     path('cart/', views.cart, name='cart'),
     path('checkout/', views.checkout, name='checkout'),
     path('success/', views.success, name='success'),

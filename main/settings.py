@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,12 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+
     'market',
-    'customauth',
-    'sberbank',
-    'cart',
     'goods',
+    'cart',
+    'customauth',
 ]
 
 MIDDLEWARE = [
@@ -124,6 +124,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -131,13 +134,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'customauth.MyUser'
 
-MERCHANTS = {
-  '%merchant_id%': {
-    'username': '%merchant_username%',
-    'password': '%merchant_password%',
-    'success_url': 'http://ваш.домен/sberbank/payment/success',
-    'fail_url': 'http://ваш.домен/sberbank/payment/fail',
-    'app_success_url': 'http://ваш.домен/payment/success',
-    'app_fail_url': 'http://ваш.домен/payment/fail',
-  }
-}
+MEDIA_URL = '/media/'  # URL для доступа к медиа-файлам
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'vspace.feature@gmail.com'
+EMAIL_HOST_PASSWORD = 'vwfv ejtq npba voib'

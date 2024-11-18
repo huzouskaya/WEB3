@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-  <!-- Start hero -->
+<!-- Start hero -->
   <section class="cs_slider position-relative">
     <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-speed="800" data-center="0" data-slides-per-view="1" data-fade-slide="0">
       <div class="cs_slider_wrapper">
@@ -11,7 +11,7 @@
             <div class="cs_hero_text">
               <h1 class="cs_heto_title cs_fs_67 cs_bold">Лучшие карнавальные костюмы</h1>
               <p class="cs_heto_subtitle">Каждый незабываемый праздник начинается с костюма. Выберите идеальный наряд для своего торжества и создайте атмосферу, которая запомнится на долго!</p>
-              <a href="{% url 'shop' %}" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Shop Now</a>
+              <a href="{% url 'shop:index' %}" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Выбрать костюм!</a>
             </div>
             <div class="cs_hero_thumb cs_bg_filed" data-src="{% static 'img/banner10.jpg' %}"></div>
           </div>
@@ -19,9 +19,9 @@
         <div class="slick_slide_in">
           <div class="cs_hero cs_style_1">
             <div class="cs_hero_text">
-              <h1 class="cs_heto_title cs_fs_67 cs_bold">T-Shirt Collection For Women</h1>
-              <p class="cs_heto_subtitle">we are more than just an online shopping destination; we're your personal gateway to a world of fashion, trendsetting styles, and unparalleled convenience. We believe that fashion is a reflection of your individuality, and our mission is to make every shopping experience with us.</p>
-              <a href="{% url 'shop' %}" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Shop Now</a>
+              <h1 class="cs_heto_title cs_fs_67 cs_bold">Яркие декорации и грим</h1>
+              <p class="cs_heto_subtitle">Грим, который вдохновляет. Декорации, которые удивляют. Дайте волю своему творчеству и добавьте красок в ваш праздник!</p>
+              <a href="{% url 'shop:index' %}" class="cs_btn cs_style_1 cs_fs_16 cs_medium">За декорациями!</a>
             </div>
             <div class="cs_hero_thumb cs_bg_filed" data-src="{% static 'img/banner4.jpg' %}"></div>
           </div>
@@ -29,9 +29,9 @@
         <div class="slick_slide_in">
           <div class="cs_hero cs_style_1">
             <div class="cs_hero_text">
-              <h1 class="cs_heto_title cs_fs_67 cs_bold">Skirts Collection For Women</h1>
-              <p class="cs_heto_subtitle">we are more than just an online shopping destination; we're your personal gateway to a world of fashion, trendsetting styles, and unparalleled convenience. We believe that fashion is a reflection of your individuality, and our mission is to make every shopping experience with us.</p>
-              <a href="shop.html" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Shop Now</a>
+              <h1 class="cs_heto_title cs_fs_67 cs_bold">Уникальные праздничные аксессуары</h1>
+              <p class="cs_heto_subtitle">Подчеркните индивидуальность, дополните свой образ и создайте магию праздника с нашими аксессуарами. Каждый костюм заслуживает особенных деталей!</p>
+              <a href="{% url 'shop:index' %}" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Подобрать аксессуары!</a>
             </div>
             <div class="cs_hero_thumb cs_bg_filed" data-src="{% static 'img/banner9.jpg' %}">
             </div>
@@ -63,8 +63,8 @@
               </svg>
             </div>
             <div class="cs_iconbox_text">
-              <h4 class="cs_iconbox_title cs_fs_21 cs_semibold">Free Shipping</h4>
-              <p class="cs_iconbox_subtitle mb-0">No need to worry about cost</p>
+              <h4 class="cs_iconbox_title cs_fs_21 cs_semibold">Бесплатная доставка</h4>
+              <p class="cs_iconbox_subtitle mb-0">Бережно доставим ваши покупки</p>
             </div>
           </div>
         </div>
@@ -85,8 +85,8 @@
               </svg>
             </div>
             <div class="cs_iconbox_text">
-              <h4 class="cs_iconbox_title cs_fs_21 cs_semibold">Payment Method</h4>
-              <p class="cs_iconbox_subtitle mb-0">Easy and hassle free online transaction</p>
+              <h4 class="cs_iconbox_title cs_fs_21 cs_semibold">Оплата</h4>
+              <p class="cs_iconbox_subtitle mb-0">Различные способы оплаты</p>
             </div>
           </div>
         </div>
@@ -111,8 +111,8 @@
               </svg>
             </div>
             <div class="cs_iconbox_text">
-              <h4 class="cs_iconbox_title cs_fs_21 cs_semibold">Online Support</h4>
-              <p class="cs_iconbox_subtitle mb-0">N24 hours a day, 7 days a week</p>
+              <h4 class="cs_iconbox_title cs_fs_21 cs_semibold">Поддержка</h4>
+              <p class="cs_iconbox_subtitle mb-0">24 часа в сутки, 7 дней в неделю</p>
             </div>
           </div>
         </div>
@@ -133,8 +133,8 @@
               </svg>
             </div>
             <div class="cs_iconbox_text">
-              <h4 class="cs_iconbox_title cs_fs_21 cs_semibold">Secure Packaging</h4>
-              <p class="cs_iconbox_subtitle mb-0">Every order packaging securely place</p>
+              <h4 class="cs_iconbox_title cs_fs_21 cs_semibold">Надежная упоковка</h4>
+              <p class="cs_iconbox_subtitle mb-0">Ваши товары в безопасности</p>
             </div>
           </div>
         </div>
@@ -147,28 +147,28 @@
   <div class="container-fluid">
     <div class="cs_grid_list">
       <div class="cs_category cs_style_1">
-        <a href="{% url 'shop' %}" class="cs_category_thumb position-relative">
-          <img src="{% static 'img/men.jpg' %}" alt="Category Image" class="w-100">
+        <a href="{% url 'shop:index' %}" class="cs_category_thumb position-relative">
+          <img src="{% static 'img/men22.jpg' %}" alt="Category Image" class="w-100">
           <span class="cs_category_btn">
-            <span>Men</span>
+            <span>Мужские костюмы</span>
             <span><i class="fa-solid fa-arrow-right"></i></span>
           </span>
         </a>
       </div>
       <div class="cs_category cs_style_1">
-        <a href="{% url 'shop' %}" class="cs_category_thumb position-relative">
-          <img src="{% static 'img/women.jpg' %}" alt="Category Image" class="w-100">
+        <a href="{% url 'shop:index' %}" class="cs_category_thumb position-relative">
+          <img src="{% static 'img/women22.jpg' %}" alt="Category Image" class="w-100">
           <span class="cs_category_btn">
-            <span>Women</span>
+            <span>Женские костюмы</span>
             <span><i class="fa-solid fa-arrow-right"></i></span>
           </span>
         </a>
       </div>
       <div class="cs_category cs_style_1">
-        <a href="{% url 'shop' %}" class="cs_category_thumb position-relative">
-          <img src="{% static 'img/children.jpg' %}" alt="Category Image" class="w-100">
+        <a href="{% url 'shop:index' %}" class="cs_category_thumb position-relative">
+          <img src="{% static 'img/kids1.jpg' %}" alt="Category Image" class="w-100">
           <span class="cs_category_btn">
-            <span>Children</span>
+            <span>Детские костюмы</span>
             <span><i class="fa-solid fa-arrow-right"></i></span>
           </span>
         </a>
@@ -180,16 +180,13 @@
   <section>
     <div class="cs_height_120 cs_height_lg_70"></div>
     <div class="container">
-      <h2 class="cs_section_title cs_fs_50 cs_bold mb-0 text-center">Featured Items</h2>
+      <h2 class="cs_section_title cs_fs_50 cs_bold mb-0 text-center">Популярные товары</h2>
       <div class="cs_height_63 cs_height_lg_35"></div>
       <ul class="cs_tab_links cs_style_1 cs_mp0">
-        <li class="active"><a href="#tab_tshirt" class="cs_fs_16 cs_medium">T-shirt</a></li>
-        <li><a href="#tab_jeans" class="cs_fs_16 cs_medium">Jeans</a></li>
-        <li><a href="#tab_cshirt" class="cs_fs_16 cs_medium">Casual Shirt</a></li>
-        <li><a href="#tab_leggings" class="cs_fs_16 cs_medium">Leggings</a></li>
-        <li><a href="#tab_skirts" class="cs_fs_16 cs_medium">Skirts</a></li>
-        <li><a href="#tab_shoes" class="cs_fs_16 cs_medium">Shoes</a></li>
-        <li><a href="#tab_accessories" class="cs_fs_16 cs_medium">Accessories</a></li>
+        <li class="active"><a href="#tab_tshirt" class="cs_fs_16 cs_medium">Костюмы</a></li>
+        <li><a href="#tab_jeans" class="cs_fs_16 cs_medium">Аксессуары</a></li>
+        <li><a href="#tab_cshirt" class="cs_fs_16 cs_medium">Декорации</a></li>
+        <li><a href="#tab_leggings" class="cs_fs_16 cs_medium">Грим</a></li>
       </ul>
     </div>
     <div class="container-fluid">
@@ -206,18 +203,18 @@
                       <img src="{% static 'img/product1.png' %}" alt="Product Image">
                       <div class="cs_discount_badge cs_white_bg cs_fs_14 cs_primary_color position-absolute">-25%</div>
                       <div class="cs_cart_badge position-absolute">
-                        <a href="{% url 'wishlist' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
+                        <a href="{% url 'market:wishlist' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
                           <i class="fa-regular fa-heart"></i>
                         </a>
-                        <a href="{% url 'product_details' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
+                        <a href="{% url 'shop:product_details' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
                           <i class="fa-regular fa-eye"></i>
                         </a>
                       </div>
-                      <a href="{% url 'cart' %}" class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add To Cart</a>
+                      <a href="{% url 'market:cart' %}" class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add To Cart</a>
                     </div>
                     <div class="cs_product_info text-center">
                       <h3 class="cs_product_title cs_fs_21 cs_medium">
-                        <a href="{% url 'product_details' %}">Pure black cotton men T-shirt</a>
+                        <a href="{% url 'shop:product_details' %}">Pure black cotton men T-shirt</a>
                       </h3>
                       <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">$250.00</p>
                     </div>
@@ -229,14 +226,14 @@
                       <img src="{% static 'img/product2.png' %}" alt="Product Image">
                       <div class="cs_discount_badge cs_white_bg cs_fs_14 cs_primary_color position-absolute">-8%</div>
                       <div class="cs_cart_badge position-absolute">
-                        <a href="{% url 'wishlist' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
+                        <a href="{% url 'market:wishlist' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
                           <i class="fa-regular fa-heart"></i>
                         </a>
-                        <a href="{% url 'product_details' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
+                        <a href="{% url 'shop:product_details' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
                           <i class="fa-regular fa-eye"></i>
                         </a>
                       </div>
-                      <a href="{% url 'cart' %}" class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add To Cart</a>
+                      <a href="{% url 'market:cart' %}" class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add To Cart</a>
                     </div>
                     <div class="cs_product_info text-center">
                       <h3 class="cs_product_title cs_fs_21 cs_medium">
@@ -1178,71 +1175,49 @@
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 13.468C0.0859599 13.4758 0.17192 13.4836 0.25788 13.4836C3.86038 13.4836 7.46288 13.4836 11.0732 13.4836C11.1513 13.4836 11.2295 13.4836 11.292 13.4836C8.61943 10.8103 5.94686 8.13705 3.2821 5.4716C4.04011 4.72121 4.73561 4.04117 5.44673 3.33768C8.08023 5.97186 10.7528 8.64513 13.4957 11.3887C13.4957 7.53517 13.4957 3.76759 13.4957 0C14.5116 0 15.4962 0 16.5043 0C16.5043 3.7754 16.5043 7.52736 16.5043 11.2715C19.1769 8.59823 21.8494 5.92496 24.4986 3.27514C25.2566 4.03335 25.9443 4.72121 26.6476 5.4247C24.0141 8.05889 21.3415 10.7322 18.6689 13.4054C18.6767 13.4289 18.6924 13.4523 18.7002 13.4758C22.459 13.4758 26.2256 13.4758 30 13.4758C30 14.4919 30 15.4768 30 16.493C26.2256 16.493 22.4668 16.493 18.6767 16.493C21.3806 19.1975 24.0453 21.863 26.7101 24.5284C25.9755 25.2475 25.2878 25.9276 24.5845 26.6232C21.951 23.9891 19.2785 21.3158 16.559 18.5878C16.5434 18.7363 16.5277 18.7989 16.5277 18.8614C16.5277 22.5039 16.5277 26.1464 16.5277 29.7968C16.5277 29.8671 16.5434 29.9297 16.5434 30C15.5275 30 14.5116 30 13.4957 30C13.5035 29.914 13.5113 29.828 13.5113 29.7421C13.5113 26.1386 13.5113 22.5352 13.5113 18.9317C13.5113 18.8536 13.4957 18.7676 13.4879 18.5956C10.745 21.3236 8.07242 23.9969 5.43892 26.6311C4.73561 25.9354 4.04011 25.2553 3.27429 24.505C5.93905 21.8395 8.6038 19.174 11.2764 16.5008C11.2217 16.5008 11.1435 16.5008 11.0654 16.5008C7.46288 16.5008 3.86038 16.5008 0.25788 16.5008C0.17192 16.5008 0.0859599 16.5164 0 16.5164C0 15.5003 0 14.4841 0 13.468Z" fill="#070707" />
         </svg>
-        35% Winter Offer Running
+        Костюмы для любого праздника
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 13.468C0.0859599 13.4758 0.17192 13.4836 0.25788 13.4836C3.86038 13.4836 7.46288 13.4836 11.0732 13.4836C11.1513 13.4836 11.2295 13.4836 11.292 13.4836C8.61943 10.8103 5.94686 8.13705 3.2821 5.4716C4.04011 4.72121 4.73561 4.04117 5.44673 3.33768C8.08023 5.97186 10.7528 8.64513 13.4957 11.3887C13.4957 7.53517 13.4957 3.76759 13.4957 0C14.5116 0 15.4962 0 16.5043 0C16.5043 3.7754 16.5043 7.52736 16.5043 11.2715C19.1769 8.59823 21.8494 5.92496 24.4986 3.27514C25.2566 4.03335 25.9443 4.72121 26.6476 5.4247C24.0141 8.05889 21.3415 10.7322 18.6689 13.4054C18.6767 13.4289 18.6924 13.4523 18.7002 13.4758C22.459 13.4758 26.2256 13.4758 30 13.4758C30 14.4919 30 15.4768 30 16.493C26.2256 16.493 22.4668 16.493 18.6767 16.493C21.3806 19.1975 24.0453 21.863 26.7101 24.5284C25.9755 25.2475 25.2878 25.9276 24.5845 26.6232C21.951 23.9891 19.2785 21.3158 16.559 18.5878C16.5434 18.7363 16.5277 18.7989 16.5277 18.8614C16.5277 22.5039 16.5277 26.1464 16.5277 29.7968C16.5277 29.8671 16.5434 29.9297 16.5434 30C15.5275 30 14.5116 30 13.4957 30C13.5035 29.914 13.5113 29.828 13.5113 29.7421C13.5113 26.1386 13.5113 22.5352 13.5113 18.9317C13.5113 18.8536 13.4957 18.7676 13.4879 18.5956C10.745 21.3236 8.07242 23.9969 5.43892 26.6311C4.73561 25.9354 4.04011 25.2553 3.27429 24.505C5.93905 21.8395 8.6038 19.174 11.2764 16.5008C11.2217 16.5008 11.1435 16.5008 11.0654 16.5008C7.46288 16.5008 3.86038 16.5008 0.25788 16.5008C0.17192 16.5008 0.0859599 16.5164 0 16.5164C0 15.5003 0 14.4841 0 13.468Z" fill="#070707" />
         </svg>
-        35% Winter Offer Running
+        Карнавальные аксессуары
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 13.468C0.0859599 13.4758 0.17192 13.4836 0.25788 13.4836C3.86038 13.4836 7.46288 13.4836 11.0732 13.4836C11.1513 13.4836 11.2295 13.4836 11.292 13.4836C8.61943 10.8103 5.94686 8.13705 3.2821 5.4716C4.04011 4.72121 4.73561 4.04117 5.44673 3.33768C8.08023 5.97186 10.7528 8.64513 13.4957 11.3887C13.4957 7.53517 13.4957 3.76759 13.4957 0C14.5116 0 15.4962 0 16.5043 0C16.5043 3.7754 16.5043 7.52736 16.5043 11.2715C19.1769 8.59823 21.8494 5.92496 24.4986 3.27514C25.2566 4.03335 25.9443 4.72121 26.6476 5.4247C24.0141 8.05889 21.3415 10.7322 18.6689 13.4054C18.6767 13.4289 18.6924 13.4523 18.7002 13.4758C22.459 13.4758 26.2256 13.4758 30 13.4758C30 14.4919 30 15.4768 30 16.493C26.2256 16.493 22.4668 16.493 18.6767 16.493C21.3806 19.1975 24.0453 21.863 26.7101 24.5284C25.9755 25.2475 25.2878 25.9276 24.5845 26.6232C21.951 23.9891 19.2785 21.3158 16.559 18.5878C16.5434 18.7363 16.5277 18.7989 16.5277 18.8614C16.5277 22.5039 16.5277 26.1464 16.5277 29.7968C16.5277 29.8671 16.5434 29.9297 16.5434 30C15.5275 30 14.5116 30 13.4957 30C13.5035 29.914 13.5113 29.828 13.5113 29.7421C13.5113 26.1386 13.5113 22.5352 13.5113 18.9317C13.5113 18.8536 13.4957 18.7676 13.4879 18.5956C10.745 21.3236 8.07242 23.9969 5.43892 26.6311C4.73561 25.9354 4.04011 25.2553 3.27429 24.505C5.93905 21.8395 8.6038 19.174 11.2764 16.5008C11.2217 16.5008 11.1435 16.5008 11.0654 16.5008C7.46288 16.5008 3.86038 16.5008 0.25788 16.5008C0.17192 16.5008 0.0859599 16.5164 0 16.5164C0 15.5003 0 14.4841 0 13.468Z" fill="#070707" />
         </svg>
-        35% Winter Offer Running
+        Праздничные декорации
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 13.468C0.0859599 13.4758 0.17192 13.4836 0.25788 13.4836C3.86038 13.4836 7.46288 13.4836 11.0732 13.4836C11.1513 13.4836 11.2295 13.4836 11.292 13.4836C8.61943 10.8103 5.94686 8.13705 3.2821 5.4716C4.04011 4.72121 4.73561 4.04117 5.44673 3.33768C8.08023 5.97186 10.7528 8.64513 13.4957 11.3887C13.4957 7.53517 13.4957 3.76759 13.4957 0C14.5116 0 15.4962 0 16.5043 0C16.5043 3.7754 16.5043 7.52736 16.5043 11.2715C19.1769 8.59823 21.8494 5.92496 24.4986 3.27514C25.2566 4.03335 25.9443 4.72121 26.6476 5.4247C24.0141 8.05889 21.3415 10.7322 18.6689 13.4054C18.6767 13.4289 18.6924 13.4523 18.7002 13.4758C22.459 13.4758 26.2256 13.4758 30 13.4758C30 14.4919 30 15.4768 30 16.493C26.2256 16.493 22.4668 16.493 18.6767 16.493C21.3806 19.1975 24.0453 21.863 26.7101 24.5284C25.9755 25.2475 25.2878 25.9276 24.5845 26.6232C21.951 23.9891 19.2785 21.3158 16.559 18.5878C16.5434 18.7363 16.5277 18.7989 16.5277 18.8614C16.5277 22.5039 16.5277 26.1464 16.5277 29.7968C16.5277 29.8671 16.5434 29.9297 16.5434 30C15.5275 30 14.5116 30 13.4957 30C13.5035 29.914 13.5113 29.828 13.5113 29.7421C13.5113 26.1386 13.5113 22.5352 13.5113 18.9317C13.5113 18.8536 13.4957 18.7676 13.4879 18.5956C10.745 21.3236 8.07242 23.9969 5.43892 26.6311C4.73561 25.9354 4.04011 25.2553 3.27429 24.505C5.93905 21.8395 8.6038 19.174 11.2764 16.5008C11.2217 16.5008 11.1435 16.5008 11.0654 16.5008C7.46288 16.5008 3.86038 16.5008 0.25788 16.5008C0.17192 16.5008 0.0859599 16.5164 0 16.5164C0 15.5003 0 14.4841 0 13.468Z" fill="#070707" />
         </svg>
-        35% Winter Offer Running
+        Все для грима
       </div>
       <div class="cs_moving_text">
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 13.468C0.0859599 13.4758 0.17192 13.4836 0.25788 13.4836C3.86038 13.4836 7.46288 13.4836 11.0732 13.4836C11.1513 13.4836 11.2295 13.4836 11.292 13.4836C8.61943 10.8103 5.94686 8.13705 3.2821 5.4716C4.04011 4.72121 4.73561 4.04117 5.44673 3.33768C8.08023 5.97186 10.7528 8.64513 13.4957 11.3887C13.4957 7.53517 13.4957 3.76759 13.4957 0C14.5116 0 15.4962 0 16.5043 0C16.5043 3.7754 16.5043 7.52736 16.5043 11.2715C19.1769 8.59823 21.8494 5.92496 24.4986 3.27514C25.2566 4.03335 25.9443 4.72121 26.6476 5.4247C24.0141 8.05889 21.3415 10.7322 18.6689 13.4054C18.6767 13.4289 18.6924 13.4523 18.7002 13.4758C22.459 13.4758 26.2256 13.4758 30 13.4758C30 14.4919 30 15.4768 30 16.493C26.2256 16.493 22.4668 16.493 18.6767 16.493C21.3806 19.1975 24.0453 21.863 26.7101 24.5284C25.9755 25.2475 25.2878 25.9276 24.5845 26.6232C21.951 23.9891 19.2785 21.3158 16.559 18.5878C16.5434 18.7363 16.5277 18.7989 16.5277 18.8614C16.5277 22.5039 16.5277 26.1464 16.5277 29.7968C16.5277 29.8671 16.5434 29.9297 16.5434 30C15.5275 30 14.5116 30 13.4957 30C13.5035 29.914 13.5113 29.828 13.5113 29.7421C13.5113 26.1386 13.5113 22.5352 13.5113 18.9317C13.5113 18.8536 13.4957 18.7676 13.4879 18.5956C10.745 21.3236 8.07242 23.9969 5.43892 26.6311C4.73561 25.9354 4.04011 25.2553 3.27429 24.505C5.93905 21.8395 8.6038 19.174 11.2764 16.5008C11.2217 16.5008 11.1435 16.5008 11.0654 16.5008C7.46288 16.5008 3.86038 16.5008 0.25788 16.5008C0.17192 16.5008 0.0859599 16.5164 0 16.5164C0 15.5003 0 14.4841 0 13.468Z" fill="#070707" />
         </svg>
-        35% Winter Offer Running
+        Костюмы для любого праздника
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 13.468C0.0859599 13.4758 0.17192 13.4836 0.25788 13.4836C3.86038 13.4836 7.46288 13.4836 11.0732 13.4836C11.1513 13.4836 11.2295 13.4836 11.292 13.4836C8.61943 10.8103 5.94686 8.13705 3.2821 5.4716C4.04011 4.72121 4.73561 4.04117 5.44673 3.33768C8.08023 5.97186 10.7528 8.64513 13.4957 11.3887C13.4957 7.53517 13.4957 3.76759 13.4957 0C14.5116 0 15.4962 0 16.5043 0C16.5043 3.7754 16.5043 7.52736 16.5043 11.2715C19.1769 8.59823 21.8494 5.92496 24.4986 3.27514C25.2566 4.03335 25.9443 4.72121 26.6476 5.4247C24.0141 8.05889 21.3415 10.7322 18.6689 13.4054C18.6767 13.4289 18.6924 13.4523 18.7002 13.4758C22.459 13.4758 26.2256 13.4758 30 13.4758C30 14.4919 30 15.4768 30 16.493C26.2256 16.493 22.4668 16.493 18.6767 16.493C21.3806 19.1975 24.0453 21.863 26.7101 24.5284C25.9755 25.2475 25.2878 25.9276 24.5845 26.6232C21.951 23.9891 19.2785 21.3158 16.559 18.5878C16.5434 18.7363 16.5277 18.7989 16.5277 18.8614C16.5277 22.5039 16.5277 26.1464 16.5277 29.7968C16.5277 29.8671 16.5434 29.9297 16.5434 30C15.5275 30 14.5116 30 13.4957 30C13.5035 29.914 13.5113 29.828 13.5113 29.7421C13.5113 26.1386 13.5113 22.5352 13.5113 18.9317C13.5113 18.8536 13.4957 18.7676 13.4879 18.5956C10.745 21.3236 8.07242 23.9969 5.43892 26.6311C4.73561 25.9354 4.04011 25.2553 3.27429 24.505C5.93905 21.8395 8.6038 19.174 11.2764 16.5008C11.2217 16.5008 11.1435 16.5008 11.0654 16.5008C7.46288 16.5008 3.86038 16.5008 0.25788 16.5008C0.17192 16.5008 0.0859599 16.5164 0 16.5164C0 15.5003 0 14.4841 0 13.468Z" fill="#070707" />
         </svg>
-        35% Winter Offer Running
+        Карнавальные аксессуары
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 13.468C0.0859599 13.4758 0.17192 13.4836 0.25788 13.4836C3.86038 13.4836 7.46288 13.4836 11.0732 13.4836C11.1513 13.4836 11.2295 13.4836 11.292 13.4836C8.61943 10.8103 5.94686 8.13705 3.2821 5.4716C4.04011 4.72121 4.73561 4.04117 5.44673 3.33768C8.08023 5.97186 10.7528 8.64513 13.4957 11.3887C13.4957 7.53517 13.4957 3.76759 13.4957 0C14.5116 0 15.4962 0 16.5043 0C16.5043 3.7754 16.5043 7.52736 16.5043 11.2715C19.1769 8.59823 21.8494 5.92496 24.4986 3.27514C25.2566 4.03335 25.9443 4.72121 26.6476 5.4247C24.0141 8.05889 21.3415 10.7322 18.6689 13.4054C18.6767 13.4289 18.6924 13.4523 18.7002 13.4758C22.459 13.4758 26.2256 13.4758 30 13.4758C30 14.4919 30 15.4768 30 16.493C26.2256 16.493 22.4668 16.493 18.6767 16.493C21.3806 19.1975 24.0453 21.863 26.7101 24.5284C25.9755 25.2475 25.2878 25.9276 24.5845 26.6232C21.951 23.9891 19.2785 21.3158 16.559 18.5878C16.5434 18.7363 16.5277 18.7989 16.5277 18.8614C16.5277 22.5039 16.5277 26.1464 16.5277 29.7968C16.5277 29.8671 16.5434 29.9297 16.5434 30C15.5275 30 14.5116 30 13.4957 30C13.5035 29.914 13.5113 29.828 13.5113 29.7421C13.5113 26.1386 13.5113 22.5352 13.5113 18.9317C13.5113 18.8536 13.4957 18.7676 13.4879 18.5956C10.745 21.3236 8.07242 23.9969 5.43892 26.6311C4.73561 25.9354 4.04011 25.2553 3.27429 24.505C5.93905 21.8395 8.6038 19.174 11.2764 16.5008C11.2217 16.5008 11.1435 16.5008 11.0654 16.5008C7.46288 16.5008 3.86038 16.5008 0.25788 16.5008C0.17192 16.5008 0.0859599 16.5164 0 16.5164C0 15.5003 0 14.4841 0 13.468Z" fill="#070707" />
         </svg>
-        35% Winter Offer Running
+        Праздничные декорации
         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 13.468C0.0859599 13.4758 0.17192 13.4836 0.25788 13.4836C3.86038 13.4836 7.46288 13.4836 11.0732 13.4836C11.1513 13.4836 11.2295 13.4836 11.292 13.4836C8.61943 10.8103 5.94686 8.13705 3.2821 5.4716C4.04011 4.72121 4.73561 4.04117 5.44673 3.33768C8.08023 5.97186 10.7528 8.64513 13.4957 11.3887C13.4957 7.53517 13.4957 3.76759 13.4957 0C14.5116 0 15.4962 0 16.5043 0C16.5043 3.7754 16.5043 7.52736 16.5043 11.2715C19.1769 8.59823 21.8494 5.92496 24.4986 3.27514C25.2566 4.03335 25.9443 4.72121 26.6476 5.4247C24.0141 8.05889 21.3415 10.7322 18.6689 13.4054C18.6767 13.4289 18.6924 13.4523 18.7002 13.4758C22.459 13.4758 26.2256 13.4758 30 13.4758C30 14.4919 30 15.4768 30 16.493C26.2256 16.493 22.4668 16.493 18.6767 16.493C21.3806 19.1975 24.0453 21.863 26.7101 24.5284C25.9755 25.2475 25.2878 25.9276 24.5845 26.6232C21.951 23.9891 19.2785 21.3158 16.559 18.5878C16.5434 18.7363 16.5277 18.7989 16.5277 18.8614C16.5277 22.5039 16.5277 26.1464 16.5277 29.7968C16.5277 29.8671 16.5434 29.9297 16.5434 30C15.5275 30 14.5116 30 13.4957 30C13.5035 29.914 13.5113 29.828 13.5113 29.7421C13.5113 26.1386 13.5113 22.5352 13.5113 18.9317C13.5113 18.8536 13.4957 18.7676 13.4879 18.5956C10.745 21.3236 8.07242 23.9969 5.43892 26.6311C4.73561 25.9354 4.04011 25.2553 3.27429 24.505C5.93905 21.8395 8.6038 19.174 11.2764 16.5008C11.2217 16.5008 11.1435 16.5008 11.0654 16.5008C7.46288 16.5008 3.86038 16.5008 0.25788 16.5008C0.17192 16.5008 0.0859599 16.5164 0 16.5164C0 15.5003 0 14.4841 0 13.468Z" fill="#070707" />
         </svg>
-        35% Winter Offer Running
+        Все для грима
       </div>
     </div>
   </div>
   <!-- End moving text slider -->
-  <!-- Start collection 1 -->
-  <section>
-    <div class="cs_height_140 cs_height_lg_80"></div>
-    <div class="cs_card cs_style_1">
-      <div class="container">
-        <div class="row cs_gap_y_30 align-items-center">
-          <div class="col-lg-6">
-            <div class="cs_card_thumb">
-              <img src="{% static 'img/card1.jpg' %}" alt="Card Image" class="w-100">
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="cs_card_info">
-              <h2 class="cs_card_title cs_fs_50 cs_bold">Explore our latest winter fashion collection</h2>
-              <p class="cs_card_subtitle">We believe that winter fashion should be both functional and fabulous. <br> Our Winter Fashion Collection reflects our commitment to quality, comfort <br> and style. Embrace the season with confidence.</p>
-              <a href="{% url 'shop' %}" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Shop Now</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="cs_height_120 cs_height_lg_70"></div>
-  </section>
-  <!-- End collection 1 -->
+
   <!-- Start new item store -->
   <section class="cs_slider position-relative">
+    <div class="cs_height_140 cs_height_lg_80"></div>
     <div class="container">
       <div class="cs_section_heading cs_style_1">
         <div class="cs_section_heading_in">
-          <h2 class="cs_section_title cs_fs_50 cs_bold mb-0">New Items in store</h2>
+          <h2 class="cs_section_title cs_fs_50 cs_bold mb-0">Новые поступления</h2>
         </div>
         <div class="cs_slider_arrows cs_style_2 cs_hide_mobile">
           <div class="cs_left_arrow cs_slider_arrow cs_accent_color">
@@ -1263,18 +1238,18 @@
               <div class="cs_product_thumb position-relative">
                 <img src="{% static 'img/product4.png' %}" alt="Product Image">
                 <div class="cs_cart_badge position-absolute">
-                  <a href="{% url 'wishlist' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
+                  <a href="{% url 'market:wishlist' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
                     <i class="fa-regular fa-heart"></i>
                   </a>
-                  <a href="{% url 'product_details' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
+                  <a href="{% url 'shop:product_details' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
                     <i class="fa-regular fa-eye"></i>
                   </a>
                 </div>
-                <a href="{% url 'cart' %}" class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add To Cart</a>
+                <a href="{% url 'market:cart' %}" class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Add To Cart</a>
               </div>
               <div class="cs_product_info text-center">
                 <h3 class="cs_product_title cs_fs_21 cs_medium">
-                  <a href="{% url 'product_details' %}">Pure cotton women Skhirt</a>
+                  <a href="{% url 'shop:product_details' %}">Pure cotton women Skhirt</a>
                 </h3>
                 <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">$250.00</p>
               </div>
@@ -1285,19 +1260,19 @@
               <div class="cs_product_thumb position-relative">
                 <img src="{% static 'img/product5.png' %}" alt="Product Image">
                 <div class="cs_cart_badge position-absolute">
-                  <a href="{% url 'wishlist' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
+                  <a href="{% url 'market:wishlist' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
                     <i class="fa-regular fa-heart"></i>
                   </a>
-                  <a href="{% url 'product_details' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
+                  <a href="{% url 'shop:product_details' %}" class="cs_cart_icon cs_accent_bg cs_white_color">
                     <i class="fa-regular fa-eye"></i>
                   </a>
                 </div>
-                <a href="{% url 'cart' %}" class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">
+                <a href="{% url 'market:cart' %}" class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">
                   Add To Cart</a>
               </div>
               <div class="cs_product_info text-center">
                 <h3 class="cs_product_title cs_fs_21 cs_medium">
-                  <a href="{% url 'product_details' %}">Satin silk sleeping were</a>
+                  <a href="{% url 'shop:product_details' %}">Satin silk sleeping were</a>
                 </h3>
                 <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">$220.00</p>
               </div>
@@ -1378,181 +1353,7 @@
     </div>
   </section>
   <!-- End new item store -->
-  <!-- Start partners -->
 
-  <!-- End partners -->
-  <!-- Start testimonial -->
-
-  <!-- End testimonial -->
-  <!-- Start collection 2 -->
-  <section>
-    <div class="cs_height_140 cs_height_lg_80"></div>
-    <div class="cs_card cs_style_2">
-      <div class="container">
-        <div class="row cs_gap_y_30 align-items-center">
-          <div class="col-lg-6">
-            <div class="cs_card_info">
-              <h2 class="cs_card_title cs_fs_50 cs_bold">Explore latest handcraft exclusive collection</h2>
-              <p class="cs_card_subtitle">We believe that winter fashion should be both functional and fabulous. Our <br> Winter Fashion Collection reflects our commitment to quality, comfort, and <br> style. Embrace the season with confidence.</p>
-              <a href="{% url 'shop' %}" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Shop Now</a>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="cs_card_thumb cs_bg_filed" data-src="{% static 'img/card2.jpg' %}"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="cs_height_120 cs_height_lg_70"></div>
-  </section>
-  <!-- End collection 2 -->
-  <!-- Start top selling store -->
-  <section class="cs_slider position-relative">
-    <div class="container">
-      <div class="cs_section_heading cs_style_1">
-        <div class="cs_section_heading_in">
-          <h2 class="cs_section_title cs_fs_50 cs_bold mb-0">Top selling accessories</h2>
-        </div>
-        <div class="cs_slider_arrows cs_style_2 cs_hide_mobile">
-          <div class="cs_left_arrow cs_slider_arrow cs_accent_color">
-            <i class="fa-solid fa-chevron-left"></i>
-          </div>
-          <div class="cs_right_arrow cs_slider_arrow cs_accent_color">
-            <i class="fa-solid fa-chevron-right"></i>
-          </div>
-        </div>
-      </div>
-      <div class="cs_height_63 cs_height_lg_35"></div>
-    </div>
-    <div class="container-fluid">
-      <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-speed="600" data-center="0"
-        data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="2" data-md-slides="2"
-        data-lg-slides="3" data-add-slides="4">
-        <div class="cs_slider_wrapper">
-          <div class="slick_slide_in">
-            <div class="cs_product cs_style_1">
-              <div class="cs_product_thumb position-relative">
-                <img src="{% static 'img/product12.png' %}" alt="Product Image">
-                <div class="cs_cart_badge position-absolute">
-                  <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                    <i class="fa-regular fa-heart"></i>
-                  </a>
-                  <a href="product_details.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                    <i class="fa-regular fa-eye"></i>
-                  </a>
-                </div>
-                <a href="cart.html" class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">
-                  Add To Cart</a>
-              </div>
-              <div class="cs_product_info text-center">
-                <h3 class="cs_product_title cs_fs_21 cs_medium">
-                  <a href="product_details.html">Ladies leather handbag</a>
-                </h3>
-                <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">$250.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="slick_slide_in">
-            <div class="cs_product cs_style_1">
-              <div class="cs_product_thumb position-relative">
-                <img src="assets/img/product13.png" alt="Product Image">
-                <div class="cs_cart_badge position-absolute">
-                  <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                    <i class="fa-regular fa-heart"></i>
-                  </a>
-                  <a href="product_details.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                    <i class="fa-regular fa-eye"></i>
-                  </a>
-                </div>
-                <a href="cart.html" class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">
-                  Add To Cart</a>
-              </div>
-              <div class="cs_product_info text-center">
-                <h3 class="cs_product_title cs_fs_21 cs_medium">
-                  <a href="product_details.html">Trendy shoulder bags for women</a>
-                </h3>
-                <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">$220.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="slick_slide_in">
-            <div class="cs_product cs_style_1">
-              <div class="cs_product_thumb position-relative">
-                <img src="assets/img/product14.png" alt="Product Image">
-                <div class="cs_cart_badge position-absolute">
-                  <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                    <i class="fa-regular fa-heart"></i>
-                  </a>
-                  <a href="product_details.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                    <i class="fa-regular fa-eye"></i>
-                  </a>
-                </div>
-                <a href="cart.html" class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">
-                  Add To Cart</a>
-              </div>
-              <div class="cs_product_info text-center">
-                <h3 class="cs_product_title cs_fs_21 cs_medium">
-                  <a href="product_details.html">Purple elegance woman luxury bag</a>
-                </h3>
-                <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">$350.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="slick_slide_in">
-            <div class="cs_product cs_style_1">
-              <div class="cs_product_thumb position-relative">
-                <img src="assets/img/product15.png" alt="Product Image">
-                <div class="cs_cart_badge position-absolute">
-                  <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                    <i class="fa-regular fa-heart"></i>
-                  </a>
-                  <a href="product_details.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                    <i class="fa-regular fa-eye"></i>
-                  </a>
-                </div>
-                <a href="cart.html" class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">
-                  Add To Cart</a>
-              </div>
-              <div class="cs_product_info text-center">
-                <h3 class="cs_product_title cs_fs_21 cs_medium">
-                  <a href="product_details.html">Classic leather tote bag</a>
-                </h3>
-                <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">$250.00</p>
-              </div>
-            </div>
-          </div>
-          <div class="slick_slide_in">
-            <div class="cs_product cs_style_1">
-              <div class="cs_product_thumb position-relative">
-                <img src="assets/img/product13.png" alt="Product Image">
-                <div class="cs_cart_badge position-absolute">
-                  <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                    <i class="fa-regular fa-heart"></i>
-                  </a>
-                  <a href="product_details.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                    <i class="fa-regular fa-eye"></i>
-                  </a>
-                </div>
-                <a href="cart.html" class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">
-                  Add To Cart</a>
-              </div>
-              <div class="cs_product_info text-center">
-                <h3 class="cs_product_title cs_fs_21 cs_medium">
-                  <a href="product_details.html">Trendy shoulder bags for women</a>
-                </h3>
-                <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">$220.00</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="cs_pagination cs_style_2 cs_hide_desktop"></div>
-    </div>
-  </section>
-  <!-- End top selling store -->
-  <!-- Start Newsletter -->
-
-  <!-- End Newsletter -->
   <!-- Start instagram -->
   <div class="cs_instagram">
     <a href="https://www.instagram.com/" target="_blank" class="position-relative cs_instagram_item">
@@ -1560,7 +1361,7 @@
         <img src="{% static 'img/instagram_1.jpg' %}" alt="Instagram">
       </div>
       <div class="cs_instagram_overlay position-absolute">
-        <i class="fa-brands fa-instagram"></i>
+        <p>Перейти к товару</p>
       </div>
     </a>
     <a href="https://www.instagram.com/" target="_blank" class="position-relative cs_instagram_item">
@@ -1568,7 +1369,7 @@
         <img src="assets/img/instagram_2.jpg" alt="Instagram">
       </div>
       <div class="cs_instagram_overlay position-absolute">
-        <i class="fa-brands fa-instagram"></i>
+        <p>Перейти к товару</p>
       </div>
     </a>
     <a href="https://www.instagram.com/" target="_blank" class="position-relative cs_instagram_item">
@@ -1576,7 +1377,7 @@
         <img src="assets/img/instagram_3.jpg" alt="Instagram">
       </div>
       <div class="cs_instagram_overlay position-absolute">
-        <i class="fa-brands fa-instagram"></i>
+        <p>Перейти к товару</p>
       </div>
     </a>
     <a href="https://www.instagram.com/" target="_blank" class="position-relative cs_instagram_item">
@@ -1584,7 +1385,7 @@
         <img src="assets/img/instagram_4.jpg" alt="Instagram">
       </div>
       <div class="cs_instagram_overlay position-absolute">
-        <i class="fa-brands fa-instagram"></i>
+        <p>Перейти к товару</p>
       </div>
     </a>
     <a href="https://www.instagram.com/" target="_blank" class="position-relative cs_instagram_item">
@@ -1592,7 +1393,7 @@
         <img src="assets/img/instagram_5.jpg" alt="Instagram">
       </div>
       <div class="cs_instagram_overlay position-absolute">
-        <i class="fa-brands fa-instagram"></i>
+        <p>Перейти к товару</p>
       </div>
     </a>
     <a href="https://www.instagram.com/" target="_blank" class="position-relative cs_instagram_item">
@@ -1600,10 +1401,9 @@
         <img src="assets/img/instagram_6.jpg" alt="Instagram">
       </div>
       <div class="cs_instagram_overlay position-absolute">
-        <i class="fa-brands fa-instagram"></i>
+        <p>Перейти к товару</p>
       </div>
     </a>
   </div>
   <!-- End instagram -->
-  <hr>
 {% endblock %}

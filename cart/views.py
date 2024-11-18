@@ -7,7 +7,7 @@ def get_cart(request):
         items = cart.items.all()
     else:
         items = []
-    return render(request, 'cart.html', {'items': items})
+    return render(request, 'market/cart.html', {'items': items})
 
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, id=product_id)
@@ -32,4 +32,4 @@ def cart_view(request):
     cart = Cart.objects.get(user=request.user)
     cart_items = cart.cartitem_set.all()
     total = sum(item.product.price * item.quantity for item in cart_items)
-    return render(request, 'cart/cart.html', {'cart_items': cart_items, 'total': total})
+    return render(request, 'market/cart.html', {'cart_items': cart_items, 'total': total})
