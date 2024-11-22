@@ -1,5 +1,6 @@
 {% extends "market/base.html" %}
 {% load static %}
+{% load cache %}
 
 {% block content %}
     {% if user.is_authenticated and not user.email_verified %}
@@ -18,47 +19,79 @@
         }
     </script>
     {% endif %}
-    <div class="align-items-center">
-        <h2>Профиль пользователя</h2>
+<div class="row">
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Профиль с данными пользователя -->
+            <div class="col-md-5">
+                <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
+                    <h3 class="text-center mb-4">Профиль пользователя</h3>
+                    <form action="{% url 'customauth:profile' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
 
-        <!-- {% if user.userprofile and user.userprofile.avatar %}
-            <div class="profile-avatar">
-                <img src="{{ user.userprofile.avatar.url }}" alt="Аватар" class="avatar">
+                            {% if not user.email_verified %}
+                                <form method="POST" action="{% url 'customauth:resend_verification_email' %}">
+                                    {% csrf_token %}
+                                    <input type="email" name="email" value="{{ user.email }}" required>
+                                    <button type="submit">Повторно отправить токен подтверждения</button>
+                                </form>
+                            {% endif %}
+
+                            <div class="col-md-12 mb-3">
+                                <label for="id_first_name" class="form-label">Имя</label>
+                                <input type="text" class="form-control" id="id_first_name"
+                                    name="first_name"
+                                    placeholder="Введите ваше имя"
+                                    value="{{ user.name }}"
+                                    required>
+                                    {% if user.name.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{user.name.errors}}</div>
+                                    {% endif %}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="id_last_name" class="form-label">Фамилия</label>
+                                <input type="text" class="form-control" id="id_last_name"
+                                    name="last_name"
+                                    placeholder="Введите вашу фамилию"
+                                    value="{{ user.surname }}"
+                                    required>
+                                    {% if user.surname.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{user.surname.errors}}</div>
+                                    {% endif %}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="id_username" class="form-label">Имя пользователя</label>
+                                <input type="text" class="form-control" id="id_username"
+                                    name="username"
+                                    placeholder="Введите ваше имя пользователя"
+                                    value="{{ user.username }}"
+                                    required>
+                                    {% if user.username.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{user.username.errors}}</div>
+                                    {% endif %}
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label for="id_email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="id_email"
+                                    name="email"
+                                    placeholder="Введите ваш email *youremail@example.com"
+                                    value="{{ user.email }}"
+                                    required>
+                                    {% if user.email.errors %}
+                                    <div class="alert alert-danger alert-dismissible fade show">{{user.email.errors}}</div>
+                                    {% endif %}
+                            </div>
+                        </div>
+                        <button type="submit" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Сохранить изменения</button>
+                    </form>
+                    <form method="post" action="{% url 'customauth:logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-dark">Выйти из учётной записи</button>
+                    </form>
+                </div>
             </div>
-        {% else %}
-            <p>Аватар не установлен.</p>
-        {% endif %} -->
-
-        <!-- <form method="post" action="{% url 'customauth:resend_verification_email' %}">
-            {% csrf_token %}
-            <input type="hidden" name="email" value="{{ user.email }}">
-            <button type="submit" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Отправить токен подтверждения снова</button>
-        </form> -->
-
-        {% if not user.email_verified %}
-            <form method="POST" action="{% url 'resend_verification_email' %}">
-                {% csrf_token %}
-                <input type="email" name="email" value="{{ user.email }}" required>
-                <button type="submit">Повторно отправить токен подтверждения</button>
-            </form>
-        {% endif %}
-
-        <p><strong>Email:</strong> {{ user.email }}</p>
-        <p><strong>Дата рождения:</strong> {{ user.date_of_birth }}</p>
-
-        {% if user.userprofile %}
-            <h3>Дополнительная информация</h3>
-            <p><strong>Био:</strong> {{ user.userprofile.bio }}</p>
-            <p><strong>Адрес доставки:</strong> {{ user.userprofile.location }}</p>
-        {% else %}
-            <p>Дополнительная информация отсутствует.</p>
-        {% endif %}
-
-        <a href="{% url 'customauth:edit_profile' %}">Редактировать профиль</a>
-
-        <form method="post" action="{% url 'customauth:logout' %}">
-            {% csrf_token %}
-            <button type="submit" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Выйти</button>
-        </form>
+        </div>
     </div>
-{% endblock %}
+</div>
+{% endblock  %}

@@ -8,7 +8,7 @@ class UserCreationForm(forms.ModelForm):
 
     class Meta:
         model = MyUser 
-        fields = ["email", "date_of_birth"]
+        fields = ["email", "username"]
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
@@ -28,11 +28,6 @@ class UserCreationForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ['bio', 'location', 'birth_date', 'avatar']
+        fields = ['name', 'surname', 'username', 'email']
 
-
-# class AvatarForm(forms.ModelForm):
-#     class Meta:
-#         model = MyUser 
-#         fields = ['avatar']
     

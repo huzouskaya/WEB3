@@ -12,46 +12,28 @@ from django.http import HttpResponse
 from django.contrib import messages
 from .models import EmailVerificationToken
 
-# from django.http import JsonResponse
-# from django.views.decorators.csrf import csrf_exempt
-# from django.core.files.base import ContentFile
-# import base64
-
-
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            send_verification_email(user, request)
+            send_verification_email(user)
             login(request, user)
             return redirect(reverse('market:index'))
     else:
         form = UserCreationForm()
     return render(request, 'customauth/register.html', {'form': form})
 
-
-# def verify_email(request, token):
-#     user = get_object_or_404(MyUser, email_verification_token=token)
-#     if user.is_used:
-#         messages.error(request, 'Этот токен уже был использован.')
-#         return redirect('market:index')
-#     user.email_verified = True
-#     user.email_verification_token = ""
-#     user.save()
-#     return HttpResponse("Ваш адрес электронной почты подтвержден!")
-
-
 def verify_email(request, token):
     verification_token = get_object_or_404(EmailVerificationToken, token=token)
 
     if verification_token.is_used:
         messages.error(request, 'Этот токен уже был использован.')
-        return redirect('home')  # Замените на ваш URL
+        return redirect('market:index')
 
     # Подтверждение электронной почты
     user = verification_token.user
-    user.email_verified = True  # Предполагается, что у вас есть поле email_verified в модели User
+    user.email_verified = True
     user.save()
 
     # Пометить токен как использованный
@@ -59,7 +41,8 @@ def verify_email(request, token):
     verification_token.save()
 
     messages.success(request, 'Ваша электронная почта успешно подтверждена!')
-    return redirect('market:index')  # Замените на ваш URL
+    return redirect('market:index')
+
 
 def resend_verification_email(request):
     if request.method == 'POST':
@@ -77,7 +60,7 @@ def resend_verification_email(request):
         except MyUser .DoesNotExist:
             messages.error(request, 'Пользователь с таким адресом электронной почты не найден.')
     
-    return redirect('market:index')  # Замените на ваш URL
+    return redirect('market:index')
 
 
 def login_view(request):
@@ -98,43 +81,3 @@ def login_view(request):
 @login_required
 def profile_view(request):
     return render(request, 'customauth/profile.html', {'user': request.user})
-
-
-@login_required
-def edit_profile(request):
-    user_profile = UserProfile.objects.get(user=request.user)
-
-    if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
-        if form.is_valid():
-            form.save()
-            return redirect('customauth:profile')
-    else:
-        form = UserProfileForm(instance=user_profile)
-
-    return render(request, 'customauth/edit_profile.html', {'form': form})
-
-
-# @csrf_exempt
-# def upload_avatar(request):
-#     if request.method == 'POST':
-#         avatar = request.FILES.get('avatar')
-#         if avatar:
-#             user_profile = request.user.userprofile
-#             unique_filename = f"{uuid.uuid4()}.png"
-#             user_profile.avatar.save(unique_filename, avatar)
-#             user_profile.save()
-#             return JsonResponse({'success': True})
-#     return JsonResponse({'success': False})
-
-
-# @login_required
-# def upload_avatar(request):
-#     if request.method == 'POST':
-#         form = AvatarForm(request.POST, request.FILES, instance=request.user)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('customauth:profile')
-#     else:
-#         form = AvatarForm(instance=request.user)
-#     return render(request, 'upload_avatar.html', {'form': form})

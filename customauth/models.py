@@ -1,36 +1,42 @@
+from datetime import timezone
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser 
 
+
+from django.contrib.auth.models import AbstractBaseUser , BaseUserManager
+from django.db import models
+
 class MyUserManager(BaseUserManager):
-    def create_user(self, email, date_of_birth, password=None):
+
+    def create_user(self, email, username, password=None):
         if not email:
-            raise ValueError("Регистрация невозможна без адреса электронной почты")
+            raise ValueError("Users must have an email address")
+        if not username:
+            raise ValueError("Users must have a username")
+
         user = self.model(
             email=self.normalize_email(email),
-            date_of_birth=date_of_birth,
+            username=username,
         )
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, date_of_birth, password=None):
+    def create_superuser(self, email, username, password=None):
         user = self.create_user(
             email,
+            username,
             password=password,
-            date_of_birth=date_of_birth,
         )
         user.is_admin = True
+        user.is_active = True
         user.save(using=self._db)
         return user
 
 
-class MyUser(AbstractBaseUser):
-    email = models.EmailField(
-        verbose_name="email address",
-        max_length=255,
-        unique=True,
-    )
-    date_of_birth = models.DateField()
+class MyUser (AbstractBaseUser ):
+    email = models.EmailField(verbose_name="email address", max_length=255, unique=True)
+    username = models.CharField(max_length=150, unique=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     email_verified = models.BooleanField(default=False)
@@ -39,7 +45,7 @@ class MyUser(AbstractBaseUser):
     objects = MyUserManager()
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["date_of_birth"]
+    REQUIRED_FIELDS = ["username"]
 
     def __str__(self):
         return self.email
@@ -56,19 +62,18 @@ class MyUser(AbstractBaseUser):
     
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(MyUser, on_delete=models.CASCADE)
-    bio = models.TextField(blank=True)
-    location = models.CharField(max_length=30, blank=True)
-    birth_date = models.DateField(null=True, blank=True)
-    avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
+    user = models.OneToOneField(MyUser , on_delete=models.CASCADE)  # Changed from username to user
+    name = models.CharField(max_length=50, blank=True)
+    surname = models.CharField(max_length=50, blank=True)
+    username = models.CharField(max_length=50, blank=True)
+    email = models.EmailField(max_length=255, blank=True)  # Use EmailField for consistency
 
     def __str__(self):
         return self.user.email
     
 
-
 class EmailVerificationToken(models.Model):
-    user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(MyUser, on_delete=models.CASCADE, default=1)
     token = models.CharField(max_length=64, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     is_used = models.BooleanField(default=False)
