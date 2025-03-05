@@ -40,7 +40,7 @@
           </g>
         </g>
       </svg>
-      <span class="cs_perloader_text">Welcome to Sattiyas. Loading...</span>
+      <span class="cs_perloader_text">Загружаем товары...</span>
     </div>
   </div>
   <!-- End Preloader -->
@@ -50,34 +50,34 @@
       <div class="container-fluid">
         <div class="cs_top_header_in">
           <div class="cs_top_header_left">
-            <p class="cs_medium mb-0">Support : product@sattiyas.com</p>
+            <p class="cs_medium mb-0">Поддержка : product@VKostume.com</p>
           </div>
           <div class="cs_top_header_center">
             <div class="cd-headline slide">
               <span class="cd-words-wrapper text-center">
                 <b class="cs_text_slide cs_medium is-visible">
-                  <span>100% Happy return policy</span>
+                  <span>100% гарантия качества</span>
                   <span>
-                    <a href="{% url 'about' %}" class="cs_text_slide_btn">Learn More</a>
+                    <a href="{% url 'about' %}" class="cs_text_slide_btn">Узнать больше</a>
                   </span>
                 </b>
                 <b class="cs_text_slide cs_medium">
-                  <span>Big sale offer with 50%</span>
+                  <span>Скидки до 50%</span>
                   <span>
-                    <a href="{% url 'shop' %}" class="cs_text_slide_btn">Learn More</a>
+                    <a href="{% url 'shop' %}" class="cs_text_slide_btn">Узнать больше</a>
                   </span>
                 </b>
                 <b class="cs_text_slide cs_medium">
-                  <span>New arrival item for you</span>
+                  <span>Регулярные поступления</span>
                   <span>
-                    <a href="{% url 'shop' %}" class="cs_text_slide_btn">Learn More</a>
+                    <a href="{% url 'shop' %}" class="cs_text_slide_btn">Узнать больше</a>
                   </span>
                 </b>
               </span>
             </div>
           </div>
           <div class="cs_top_header_right">
-            <p class="cs_medium mb-0">Mon-Fri Open : 11:00 - 19:00</p>
+            <p class="cs_medium mb-0">Делаем ваш праздник ярче!</p>
           </div>
         </div>
       </div>
@@ -87,86 +87,70 @@
         <div class="cs_main_header_in">
           <div class="cs_main_header_left">
             <a class="cs_site_branding" href="{% url 'index' %}">
-              <img src="{% static 'img/logo.svg' %}" alt="Logo">
+              <img src="{% static 'img/logo.png' %}" alt="Logo" width="180px">
             </a>
           </div>
           <div class="cs_main_header_center">
             <div class="cs_nav cs_medium">
               <ul class="cs_nav_list">
-                <li class="menu-item-has-children">
-                  <a href="{% url 'index' %}">Home</a>
-                  <ul>
-                    <li><a href="{% url 'index' %}">Fashion V1</a></li>
-                    <li><a href="{% url 'home-v2' %}">Fashion V2</a></li>
-                    <li><a href="{% url 'home-v3' %}">Jewelry</a></li>
-                  </ul>
-                </li>
-                <li class="menu-item-has-children">
-                  <a href="{% url 'shop' %}">Product</a>
-                  <ul>
-                    <li><a href="{% url 'shop' %}">All Product</a></li>
-                    <li><a href="{% url 'shop_sidebar' %}">Shop Sidebar</a></li>
-                    <li><a href="{% url 'product_details' %}">Product Details</a></li>
-                  </ul>
-                </li>
-                <li><a href="{% url 'blog' %}">Blog</a></li>
-                <li class="menu-item-has-children">
-                  <a href="">Pages</a>
-                  <ul>
-                    <li><a href="{% url  'about' %}">About</a></li>
-                    <li><a href="{% url 'blog_details' %}">Blog Details</a></li>
-                    <li><a href="{% url 'cart' %}">Cart</a></li>
-                    <li><a href="{% url 'checkout' %}">Checkout</a></li>
-                    <li><a href="{% url 'success' %}">Success</a></li>
-                    <li><a href="{% url 'wishlist' %}">Wishlist</a></li>
-                  </ul>
-                </li>
+                <li><a href="{% url 'index' %}">Главная</a></li>
                 <li class="menu-item-has-children cs_mega_menu">
-                  <a href="">MegaMenu</a>
+                  <a href="">Каталог</a>
                   <ul class="cs_mega_wrapper">
                     <li class="menu-item-has-children">
-                      <a href="">For women</a>
+                      <a href="{% url 'shop' %}">Все костюмы</a>
                       <ul>
-                        <li><a href="{% url 'shop' %}">Women's Clothing</a></li>
-                        <li><a href="{% url 'shop' %}">Men's Clothing</a></li>
-                        <li><a href="{% url 'shop' %}">Kids' Clothing</a></li>
-                        <li><a href="{% url 'shop' %}">Shoes (Men, Women, Kids)</a></li>
-                        <li><a href="{% url 'shop' %}">Accessories (e.g., hats, scarves)</a></li>
+                        <li><a href="{% url 'shop' %}">Женские костюмы</a></li>
+                        <li><a href="{% url 'shop' %}">Мужские костюмы</a></li>
+                        <li><a href="{% url 'shop' %}">Детские костюмы</a></li>
+                        <li><a href="{% url 'shop' %}">Костюмы для малышей</a></li>
                       </ul>
                     </li>
                     <li class="menu-item-has-children">
-                      <a href="">For men</a>
+                      <a href="">Тематические</a>
                       <ul>
-                        <li><a  href="{% url 'shop' %}">Activewear</a></li>
-                        <li><a  href="{% url 'shop' %}">Formal Wear</a></li>
-                        <li><a  href="{% url 'shop' %}">Casual Wear</a></li>
-                        <li><a  href="{% url 'shop' %}">Outerwear (Jackets, Coats)</a></li>
-                        <li><a  href="{% url 'shop' %}">Swimwear</a></li>
+                        <li><a  href="{% url 'shop' %}">Известные персонажи</a></li>
+                        <li><a  href="{% url 'shop' %}">Костюмы на Хеллоуин</a></li>
+                        <li><a  href="{% url 'shop' %}">Костюмы животных</a></li>
+                        <li><a  href="{% url 'shop' %}">Национальные костюмы</a></li>
+                        <li><a  href="{% url 'shop' %}">Новогодние костюмы</a></li>
+                        <li><a  href="{% url 'shop' %}">Надувные костюмы</a></li>
+                        <li><a  href="{% url 'shop' %}">Парные костюмы</a></li>
+                        <li><a  href="{% url 'shop' %}">Костюмы клоунов</a></li>
+                        <li><a  href="{% url 'shop' %}">Исторические костюмы</a></li>
                       </ul>
                     </li>
                     <li class="menu-item-has-children">
-                      <a href="">For children</a>
+                      <a href="">Аксессуары</a>
                       <ul>
-                        <li><a href="{% url 'shop' %}">Lingerie and Sleepwear</a></li>
-                        <li><a href="{% url 'shop' %}">Maternity Wear</a></li>
-                        <li><a href="{% url 'shop' %}">Plus Size Clothing</a></li>
-                        <li><a href="{% url 'shop' %}">Sustainable Fashion</a></li>
-                        <li><a href="{% url 'shop' %}">Vintage/Second-hand Clothing</a></li>
+                        <li><a href="{% url 'shop' %}">Маски</a></li>
+                        <li><a href="{% url 'shop' %}">Парики и бороды</a></li>
+                        <li><a href="{% url 'shop' %}">Головные уборы</a></li>
+                        <li><a href="{% url 'shop' %}">Очки</a></li>
+                        <li><a href="{% url 'shop' %}">Перчатки</a></li>
+                        <li><a href="{% url 'shop' %}">Крылья</a></li>
+                        <li><a href="{% url 'shop' %}">Плащи и накидки</a></li>
                       </ul>
                     </li>
                     <li class="menu-item-has-children">
-                      <a href="">Details for look</a>
+                      <a href="">Грим и декорации</a>
                       <ul>
-                        <li><a href="{% url 'shop' %}">Sports Apparel</a></li>
-                        <li><a href="{% url 'shop' %}">Workwear</a></li>
-                        <li><a href="{% url 'shop' %}">Designer Clothing</a></li>
-                        <li><a href="{% url 'shop' %}">Seasonal Collections</a></li>
-                        <li><a href="{% url 'shop' %}">Costumes and Cosplay</a></li>
+                        <li><a href="{% url 'shop' %}">Театральный грим</a></li>
+                        <li><a href="{% url 'shop' %}">Аквагрим</a></li>
+                        <li><a href="{% url 'shop' %}">Клыки и зубы</a></li>
+                        <li><a href="{% url 'shop' %}">Цветные контактные линзы</a></li>
+                        <li><a href="{% url 'shop' %}">Искусственный снег</a></li>
+                        <li><a href="{% url 'shop' %}">Искусственная кровь</a></li>
+                        <li><a href="{% url 'shop' %}">Световые декорации</a></li>
+                        <li><a href="{% url 'shop' %}">Декорации на Хеллоуин</a></li>
+                        <li><a href="{% url 'shop' %}">Декорации на Новый год</a></li>
+                        <li><a href="{% url 'shop' %}">Конфетти</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url  'about' %}">О нас</a></li>
+                <li><a href="{% url 'contact' %}">Контакты</a></li>
               </ul>
             </div>
           </div>
@@ -203,11 +187,11 @@
       <div class="container">
         <div class="cs_header_search_in">
           <div class="cs_hero_search_heading">
-            <h3>What are you looking for?</h3>
+            <h3>Что вы хотите найти?</h3>
             <button class="cs_header_search_close" type="button"><i class="fa-solid fa-xmark"></i></button>
           </div>
           <form action="#" class="cs_header_search_form">
-            <input type="text" placeholder="Search...">
+            <input type="text" placeholder="Введите ключевые слова">
             <button type="submit">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
