@@ -5,11 +5,17 @@ from .forms import PostForm
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 
+from goods.models import Categories
+
 
 def index(request) -> HttpResponse:
+
+    categories = Categories.objects.all()
+
     context: dict[str, str] = {
         'title': 'Лучшие карнавальные костюмы', #на месте замены пишем {{title}} - placeholder
-        'content': 'Делаем ваш праздник ярче!'
+        'content': 'Делаем ваш праздник ярче!',
+        'categories': categories
     }
 
     return render(request, 'market/index.html', context)
@@ -65,6 +71,15 @@ def success(request):
 
 def wishlist(request):
     return render(request, 'market/wishlist.html')
+
+def delivery(request):
+    return render(request, 'market/delivery.html')
+
+def payment(request):
+    return render(request, 'market/payment.html')
+
+def return_good(request):
+    return render(request, 'market/return.html')
 # def index(request):
 #     return HttpResponse('home page')
 #

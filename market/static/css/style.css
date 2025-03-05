@@ -26,6 +26,8 @@
 24. Feature
 25. Shop
 26. Contact
+**added**
+27. Dropdown Filter Menu
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 ## Basic Color
@@ -34,6 +36,7 @@
 1. Typography
 ----------------------------------------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&display=swap");
+
 body,
 html {
   color: #5e5e5e;
@@ -6424,7 +6427,7 @@ Pavigation styling
       -ms-flex-pack: center;
           justify-content: center;
 }
-.cs_page_item.active .cs_page_link, .cs_page_item:hover .cs_page_link {
+.cs_page_item:hover .cs_page_link {
   background-color: #fc5f49;
 }
 

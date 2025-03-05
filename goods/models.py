@@ -3,6 +3,7 @@ from django.db import models
 class Categories(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
     slug = models.SlugField(max_length=200, unique=True, blank=True, verbose_name='URL')
+    type = models.CharField(max_length=25, unique=False, blank=True, verbose_name='Тип')
 
     class Meta:
         verbose_name: 'Категорию'
@@ -24,8 +25,9 @@ class Products(models.Model):
     material = models.CharField(max_length=200, verbose_name='Материал')
 
     class Meta:
-        verbose_name: 'Продукт'
-        verbose_name_plural: 'Продукты'
+        verbose_name = 'Продукт'
+        verbose_name_plural = 'Продукты'
+        ordering = ("id",)
 
     def __str__(self):
         return self.name
