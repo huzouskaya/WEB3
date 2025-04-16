@@ -1,4 +1,4 @@
-{% extends "market/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
@@ -49,7 +49,7 @@
                   </div>
                 </div>
               </div>
-              <a href="{% url 'shop:index' %}" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Перейти в каталог товаров</a>
+              <a href="{% url 'shop:index' 'all' %}" class="cs_btn cs_style_1 cs_fs_16 cs_medium">Перейти в каталог товаров</a>
             </div>
           </div>
         </div>

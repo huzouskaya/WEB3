@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <style>
+        ._failed{ border-bottom: solid 4px red !important; }
+        ._failed i{  color:red !important;  }
+
+        ._success {
+            box-shadow: 0 15px 25px #00000019;
+            padding: 45px;
+            width: 100%;
+            text-align: center;
+            margin: 40px auto;
+            border-bottom: solid 4px #28a745;
+        }
+
+        ._success i {
+            font-size: 55px;
+            color: #28a745;
+        }
+
+        ._success h2 {
+            margin-bottom: 12px;
+            font-size: 40px;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-top: 10px;
+        }
+
+        ._success p {
+            margin-bottom: 0px;
+            font-size: 18px;
+            color: #495057;
+            font-weight: 500;
+        }
+        .button-59 {
+            align-items: center;
+            background-color: #fff;
+            border: 2px solid #ffc107;
+            box-sizing: border-box;
+            color: #ffc107;
+            cursor: pointer;
+            display: inline-flex;
+            fill: #ffc107;
+            font-family: Inter,sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            height: 48px;
+            justify-content: center;
+            letter-spacing: -.8px;
+            line-height: 24px;
+            min-width: 140px;
+            outline: 0;
+            padding: 0 17px;
+            text-align: center;
+            text-decoration: none;
+            transition: all .3s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            }
+
+        .button-59:focus {
+            color: #ffc107;
+        }
+
+        .button-59:hover {
+            border-color: #fc9449;
+            color: #fc9449;
+            fill: #fc9449;
+        }
+
+        .button-59:active {
+            border-color: #fc9449;
+            color: #fc9449;
+            fill: #fc9449;
+        }
+
+        @media (min-width: 768px) {
+            .button-59 {
+                min-width: 170px;
+            }
+        }
+        #outer {
+            width:100%;
+            text-align: center;
+        }
+        .inner {
+            display: inline-block;
+        }
+    </style>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="message-box _success">
+                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    <h2> Оплата прошла успешно </h2>
+                    <p> Благодарим вас за покупку!<br>
+                        Ваш выбор — наше вдохновение.  </p>  
+                    <div class="cs_height_20 cs_height_lg_20"></div>
+                    <div id="outer">
+                        <a href="{% url 'market:index' %}" class="inner"><button class="button-59" role="button">Главная</button></a> 
+                        <a href="{% url 'user:profile' %}" class="inner"><button class="button-59" role="button">Профиль</button></a> 
+                    </div> 
+                    <div class="cs_height_20 cs_height_lg_20"></div>
+            </div> 
+        </div> 
+    </div> 
+    <hr>
+{% endblock %}

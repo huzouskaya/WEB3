@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+{% load static %}
+{% load cart_tags %}
+
+{% block content %}
+<style>
+    .row-order-info {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container-order-infp {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #ffc107;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 25%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #fc5f49;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+</style>
+<section>
+    <div class="container">
+    <div class="cs_height_80 cs_height_lg_60"></div>
+    <div class="cs_shop_page_heading text-center">
+        <h1 class="cs_fs_50 cs_bold" style="text-align: start;">Выбранные товары</h1>
+    </div>
+    <div class="cs_height_40"></div>
+    </div>
+</section>
+<section>        
+    <div>
+        <div id="cart-items-container">
+            {% include "cart/includes/cart without button.html" %}
+        </div>
+
+        <section>
+            <div class="container">
+            <div class="cs_height_80 cs_height_lg_60"></div>
+            <div class="cs_shop_page_heading text-center">
+                <h1 class="cs_fs_50 cs_bold" style="text-align: start;">Детали заказа</h1>
+            </div>
+            <div class="cs_height_40"></div>
+            </div>
+        </section>
+
+        <div class="row">
+        <div>
+            <div class="container">
+            <form action="{% url 'orders:create_order' %}" method="post">
+                {% csrf_token %}
+                <div class="row">
+                <div class="col-50">
+                    <h3>Заказчик</h3>
+                    <label for="id_name"><i class="fa fa-user"></i> Полное имя</label>
+                    <input type="text" id="id_name" name="name" placeholder="Иванов Иван Иванович"
+                      value="{% if form.name.value %}{{ form.name.value}}{% endif %}">
+                      {% if form.name.errors %}
+                        <p>{{form.name.errors}}</p>
+                      {% endif %}
+                    <label for="id_phone_number"><i class="fa-solid fa-mobile-screen-button"></i> Номер телефона</label>
+                    <input type="text" id="id_phone_number" name="phone_number" placeholder="+70000000000"
+                      value="{% if form.phone_number.value %}{{ form.phone_number.value}}{% endif %}">
+                      {% if form.phone_number.errors %}
+                        <p>{{form.phone_number.errors}}</p>
+                      {% endif %}
+                    <label for="id_delivery_address"><i class="fa fa-address-card-o"></i> Адрес (в свободной форме)</label>
+                    <input type="text" id="id_delivery_address" name="delivery_address" placeholder="ул. Советска, д. 5, кв. 999"
+                      value="{% if form.delivery_address.value %}{{ form.delivery_address.value}}{% endif %}">
+                      {% if form.delivery_address.errors %}
+                        <p>{{form.delivery_address.errors}}</p>
+                      {% endif %}
+                </div>
+
+                <div class="col-50">
+                  <div class="cs_height_58 cs_height_lg_50"></div>
+                  <label for="id_delivery_city"><i class="fa fa-institution"></i> Город</label>
+                  <input type="text" id="id_delivery_city" name="delivery_city" placeholder="Москва"
+                    value="{% if form.delivery_city.value %}{{ form.delivery_city.value}}{% endif %}">
+                    {% if form.delivery_city.errors %}
+                      <p>{{form.delivery_city.errors}}</p>
+                    {% endif %}
+                  <label for="id_post_index">Почтовый индекс</label>
+                  <input type="text" id="id_post_index" name="post_index" placeholder="000000"
+                    value="{% if form.post_index.value %}{{ form.post_index.value}}{% endif %}">
+                  {% if form.post_index.errors %}
+                    <p>{{form.post_index.errors}}</p>
+                  {% endif %}
+                  <!--
+                    <h3>Оплата</h3>
+                    <label for="fname">Принимаемые карты</label>
+                    <div class="icon-container">
+                    <i class="fa-brands fa-cc-visa" style="color:navy;"></i>
+                    <i class="fa-brands fa-cc-amex" style="color:blue;"></i>
+                    <i class="fa-brands fa-cc-mastercard" style="color:red;"></i>
+                    <i class="fa-brands fa-cc-discover" style="color:orange;"></i>
+                    </div>
+                    <label for="cname">Владелец карты</label>
+                    <input type="text" id="cname" name="cardname" placeholder="Иван Иванов">
+                    <label for="ccnum">Номер карты</label>
+                    <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                    <label for="expmonth">Срок действия</label>
+                    <input type="text" id="expmonth" name="expmonth" placeholder="MM/YY">
+        
+                    <div class="row">
+                    <div class="col-50">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123">
+                    </div>
+                    </div> -->
+                </div>
+        
+                </div>
+                
+                <div class="container" style="display: flex; justify-content: end; align-items: end;">
+                    <input type="submit" value="Перейти к оплате" class="btn">
+                </div>
+                
+            </form>
+            </div>
+        </div>
+        </div>
+
+</section>
+{% endblock %}

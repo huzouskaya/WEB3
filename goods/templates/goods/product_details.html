@@ -1,4 +1,4 @@
-{% extends "market/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
@@ -6,14 +6,15 @@
   <section>
     <div class="cs_height_35 cs_height_lg_35"></div>
     <div class="container">
+      <!--
       <nav aria-label="breadcrumb">
         <ol class="cs_single_product_breadcrumb breadcrumb">
           <li class="breadcrumb-item"><a href="{% url 'market:index' %}">Главная</a></li>
-          <li class="breadcrumb-item"><a href="{% url 'shop:index' %}">Каталог</a></li>
-          <li class="breadcrumb-item"><a href="#">Men</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'shop:index' slug_url %}">Каталог</a></li>
+          <li class="breadcrumb-item"><a href="#">{{slug_url}}</a></li>
           <li class="breadcrumb-item active">{{ product.name }}</li>
         </ol>
-      </nav>
+      </nav>-->
       <div class="row">
         <div class="col-xl-7">
           <div class="row">
@@ -30,12 +31,12 @@
           <div class="cs_single_product_details">
             <h2 class="cs_fs_37 cs_semibold">{{ product.name }}</h2>
             <div class="cs_single_product_review">
-              <div class="cs_rating_container">
+              <!--<div class="cs_rating_container">
                 <div class="cs_rating cs_size_sm" data-rating="5">
                   <div class="cs_rating_percentage"></div>
                 </div>
               </div>
-              <span>(5)</span>
+              <span>(5)</span>-->
               <span>На складе: <span class="cs_accent_color">{{ product.quantity }}</span></span>
             </div>
             <h4 class="cs_single_product_price cs_fs_21 cs_primary_color cs_semibold">Цена: {{ product.price }}₽</h4>
@@ -45,6 +46,7 @@
             </div>
             <div class="cs_single_product_size">
               <h4 class="cs_fs_16 cs_medium">Размер</h4>
+              {% if product.size == "Y" %}
               <ul class="cs_size_filter_list cs_mp0">
                 <li>
                   <input type="radio" name="size">
@@ -63,6 +65,7 @@
                   <span>XL</span>
                 </li>
               </ul>
+              {% endif %}
             </div>
             <div class="cs_action_btns">
               <div class="cs_quantity">
@@ -70,8 +73,9 @@
                 <span class="cs_quantity_input">1</span>
                 <button class="cs_quantity_btn cs_decrement"><i class="fa-solid fa-angle-down"></i></button>
               </div>
-              <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium">В корзину</a>
-              <button class="cs_heart_btn"><i class="fa-regular fa-heart"></i></button>
+              <a href="{% url 'cart:cart_add' %}" class="cs_btn cs_style_1 cs_fs_16 cs_medium add-to-cart"
+              data-product-id="{{ product.id }}">{% csrf_token %} В корзину</a>
+              <!--<button class="cs_heart_btn"><i class="fa-regular fa-heart"></i></button>-->
             </div>
             <ul class="cs_single_product_info">
               <li class="cs_fs_16 cs_normal">
@@ -81,7 +85,7 @@
                 <b class="cs_medium">Материал: </b>{{ product.material }}
               </li>
               <li class="cs_fs_16 cs_normal">
-                <b class="cs_medium">Категории: </b>Levine
+                <!--<b class="cs_medium">Категории: {{product.categories}}</b>Levine-->
               </li>
             </ul>
           </div>
@@ -89,6 +93,7 @@
       </div>
       <div class="cs_height_70 cs_height_lg_60"></div>
       <hr>
+      <!--
       <div class="cs_product_meta_info">
         <ul class="cs_tab_links cs_style_2 cs_product_tab cs_fs_21 cs_primary_color cs_semibold cs_mp0">
           <li><a href="#tab_1">{{ product.description }}</a></li>
@@ -195,7 +200,7 @@
               </div>
             </form>
           </div>
-        </div>
+        </div> -->
         <!-- .cs_tabs -->
       </div>
     </div>

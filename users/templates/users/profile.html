@@ -1,0 +1,142 @@
+﻿{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <!-- Start Page Heading -->
+  <!-- <section class="cs_page_heading text-center position-relative cs_bg_filed" data-src="assets/img/shop_bg.jpg">
+    <div class="cs_hero_overlay position-absolute"></div>
+    <div class="container position-relative">
+      <h2 class="cs_fs_50 cs_bold cs_white_color mb-0">Contact Us</h2>
+    </div>
+  </section> -->
+  <!-- End Page Heading -->
+  <!-- Start contact -->
+  <section style="margin-left: 5%;" class="container">
+    <div id="column1" style="float:left; margin:0; width:13%;">
+      <img src="{% static 'img/profile.png' %}" style="margin-top: 80%; ">
+    </div>
+
+    <div id="column2" style="float:left; margin:0;width:53%;">
+      <div class="cs_height_140 cs_height_lg_80"></div>
+      <h3>Имя пользователя: {{user.username}}</h3>
+      <h3>Email: {{user.email}}</h3>
+      <a href="{% url 'user:logout' %}" class="cs_btn cs_style_1 cs_fs_16 cs_small">Выйти</a>
+      <div class="cs_height_80 cs_height_lg_80"></div>
+    </div>
+    
+    <h3>Заказы:</h3>
+    <div class="row">
+      <div>
+        <div class="table-responsive">
+          <table class="cs_cart_table">
+            <thead>
+              <tr>
+                <th>Номер заказа</th>
+                <th>Дата заказа</th>
+                <th>Товар</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th>Итого</th>
+                <th>Статус</th>
+                <th></th>
+              </tr>
+            </thead>
+              {% for order in orders %}
+                {% for item in order.orderitem_set.all %}
+                  <tbody style="background-color:rgb(235, 235, 235); width:200%">
+                    <tr>
+                      <td>
+                        {{ order.id }}
+                      </td>
+                      <td>
+                        {{ order.created_timestamp}}
+                      </td>
+                      <td>
+                        {{ item.product.name }}
+                      </td>
+                      <td>
+                        {{ item.price }}₽
+                      </td>
+                      <td>
+                        {{ item.quantity }}
+                      </td>
+                      <td>
+                        {{ item.products_price }}₽
+                      </td>
+                      <td style="color:#fc5f49">
+                        {{ order.status }}
+                      </td>
+                    </tr>
+                  </tbody>
+                {% endfor %}
+              {% endfor %}
+          </table>
+        </div>
+        <div class="cs_height_30 cs_height_lg_30"></div>
+      </div>   
+    </div>
+
+    <h3>Товары в корзине:</h3>
+    <section>
+    <!-- Start Cart -->
+    
+    <div id="cart-items-container">
+      {% include "cart/includes/cart.html" %}
+    </div>
+
+  </section>
+  
+  <!-- End contact -->
+  <!-- Start instagram
+  <div class="cs_instagram">
+    <a href="https://www.instagram.com/" target="_blank" class="position-relative cs_instagram_item">
+      <div class="cs_instagram_thumb position-relative">
+        <img src="assets/img/instagram_1.jpg" alt="Instagram">
+      </div>
+      <div class="cs_instagram_overlay position-absolute">
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/" target="_blank" class="position-relative cs_instagram_item">
+      <div class="cs_instagram_thumb position-relative">
+        <img src="assets/img/instagram_2.jpg" alt="Instagram">
+      </div>
+      <div class="cs_instagram_overlay position-absolute">
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/" target="_blank" class="position-relative cs_instagram_item">
+      <div class="cs_instagram_thumb position-relative">
+        <img src="assets/img/instagram_3.jpg" alt="Instagram">
+      </div>
+      <div class="cs_instagram_overlay position-absolute">
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/" target="_blank" class="position-relative cs_instagram_item">
+      <div class="cs_instagram_thumb position-relative">
+        <img src="assets/img/instagram_4.jpg" alt="Instagram">
+      </div>
+      <div class="cs_instagram_overlay position-absolute">
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/" target="_blank" class="position-relative cs_instagram_item">
+      <div class="cs_instagram_thumb position-relative">
+        <img src="assets/img/instagram_5.jpg" alt="Instagram">
+      </div>
+      <div class="cs_instagram_overlay position-absolute">
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+    </a>
+    <a href="https://www.instagram.com/" target="_blank" class="position-relative cs_instagram_item">
+      <div class="cs_instagram_thumb position-relative">
+        <img src="assets/img/instagram_6.jpg" alt="Instagram">
+      </div>
+      <div class="cs_instagram_overlay position-absolute">
+        <i class="fa-brands fa-instagram"></i>
+      </div>
+    </a>
+  </div> -->
+  <!-- End instagram -->
+{% endblock %}

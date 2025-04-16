@@ -1,4 +1,4 @@
-{% extends "market/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 {% load goods_tags%}
 
@@ -361,14 +361,12 @@
               <div class="cs_product_thumb position-relative">
                 <img src="{{ product.image }}" alt="Product Image" class="w-100">
                 <div class="cs_cart_badge position-absolute">
-                  <a href="wishlist.html" class="cs_cart_icon cs_accent_bg cs_white_color">
-                    <i class="fa-regular fa-heart"></i>
-                  </a>
                   <a href="{% url 'shop:product_details' product.slug %}" class="cs_cart_icon cs_accent_bg cs_white_color">
                     <i class="fa-regular fa-eye"></i>
                   </a>
                 </div>
-                <a href="cart.html" class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute">Добавить в корзину</a>
+                <a href="{% url 'cart:cart_add' %}" class="cs_cart_btn cs_accent_bg cs_fs_16 cs_white_color cs_medium position-absolute add-to-cart"
+                data-product-id="{{ product.id}}">{% csrf_token %} Добавить в корзину</a>
               </div>
               <div class="cs_product_info text-center">
                 <h3 class="cs_product_title cs_fs_21 cs_medium">
@@ -386,7 +384,8 @@
                 <p class="cs_product_price cs_fs_18 cs_accent_color mb-0 cs_medium">{{ product.price }} ₽</p>
                 <p class="cs_product_desc">{{ product.description }}</p>
                 <div class="cs_action_btns">
-                  <a href="#" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn">Добавить в корзину</a>
+                  <a href="{% url 'cart:cart_add' %}" class="cs_btn cs_style_1 cs_fs_16 cs_medium cs_accent_btn add-to-cart"
+                  data-product-id="{{ product.id }}"> {% csrf_token %} Добавить в корзину</a>
                   <button class="cs_heart_btn"><i class="fa-regular fa-heart"></i></button>
                 </div>
               </div>
@@ -397,11 +396,11 @@
       </div>
       <div class="cs_height_75 cs_height_lg_50"></div>
       <ul class="cs_pagination cs_fs_21 cs_semibold cs_mp0">
-        {% if goods.has_previous %}
+        <!-- {% if goods.has_previous %}
           <li class="cs_page_item"><a class="cs_page_link" href="{% if goods.has_previous %}?{% change_params page=page %}{% else %}
             #
             {% endif %}"><i class="fa-solid fa-arrow-left"></i></a></li>
-        {% endif %}
+        {% endif %} -->
 
         {% for page in goods.paginator.page_range %}
         {% if page >= goods.number|add:-2 and page <= goods.number|add:2 %}
@@ -409,11 +408,11 @@
         {% endif %}
         {% endfor %}
 
-        {% if goods.has_next %}
+        <!-- {% if goods.has_next %}
           <li class="cs_page_item"><a class="cs_page_link" href="{% if goods.has_next %}?{% change_params page=page %}{% else %}
             #
             {% endif %}"><i class="fa-solid fa-arrow-right"></i></a></li>
-        {% endif %}
+        {% endif %} -->
       </ul>
     </div>
     <div class="cs_height_140 cs_height_lg_80"></div>

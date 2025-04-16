@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Raleway');
+  body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Raleway', sans-serif;
+      /*color: #F2F2F2;*/
+  }
+
+  #container-login {
+      /*background-color: #1D1F20;*/
+      position: relative;
+      top: 20%;
+      margin: auto;
+      width: 340px;
+      height: 430px;
+      border-radius: 0.35em;
+      box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+      text-align: center;
+  }
+
+  #container-register {
+      background-color: #1D1F20;
+      position: relative;
+      top: 20%;
+      margin: auto;
+      width: 340px;
+      height: 480px;
+      border-radius: 0.35em;
+      box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+      text-align: center;
+  }
+
+  #title {
+      position: relative;
+      /*background-color: #1A1C1D;*/
+      width: 100%;
+      padding: 20px 0px;
+      border-radius: 0.35em;
+      font-size: 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .lock {
+    position: relative;
+    top: 2px;
+  }
+
+  .input {
+      margin: auto;
+      width: 240px;
+      border-radius: 4px;
+      /*background-color: #373b3d;*/
+      padding: 8px 0px;
+      margin-top: 15px;
+  }
+
+  .input-addon {
+      float: left;
+      /*background-color: #373b3d;*/
+      padding: 10px 10px;
+      
+  }
+
+  input[type=checkbox] {
+      cursor: pointer;
+  }
+
+  input[type=text] {
+      /*color: #949494;*/
+      margin: 0;
+      /*background-color: #373b3d;*/
+      border: 1px solid #373b3d;
+      padding: 6px 0px;
+      border-radius: 3px;
+  }
+
+  input[type=text]:focus {
+      border: 1px solid #373b3d;
+  }
+
+  input[type=password] {
+      /*color: #949494;*/
+      margin: 0;
+      /*background-color: #373b3d;*/
+      border: 1px solid #373b3d;
+      padding: 6px 0px;
+      border-radius: 3px;
+  }
+
+  input[type=password]:focus {
+      border: 1px solid #373b3d;
+  }
+
+  input[type=email] {
+      /*color: #949494;*/
+      margin: 0;
+      /*background-color: #373b3d;*/
+      border: 1px solid #373b3d;
+      padding: 6px 0px;
+      border-radius: 3px;
+  }
+
+  input[type=email]:focus {
+      border: 1px solid #373b3d;
+  }
+
+  .forgot-password {
+      position: relative;
+      bottom: 0%;
+  }
+
+  .forgot-password a:link {
+      /*color: #C1C3C6;*/
+      text-decoration: none;
+  }
+
+  .forgot-password a:visited {
+      /*color: #C1C3C6;*/
+      text-decoration: none;
+  }
+
+  .forgot-password a:hover {
+      /*color: #FFF;*/
+      transition: color 1s;
+  }
+
+  .privacy {
+      margin-top: 5px;
+      position: relative;
+      font-size: 12px;
+      bottom: 0%;
+  }
+
+  .privacy a:link {
+      /*color: #949494;*/
+      text-decoration: none;
+  }
+
+  .privacy a:visited {
+      /*color: #949494;*/
+      text-decoration: none;
+  }
+
+  .privacy a:hover {
+      /*color: #C1C3C6;*/
+      transition: color 1s;
+  }
+
+  *:focus {
+      outline: none;
+  }
+
+  .remember-me {
+      margin: 10px 0;
+  }
+
+  input[type=submit] {
+      padding: 6px 25px;
+      /*background: #373E4A;
+      color: #C1C3C6;*/
+      font-weight: bold;
+      border: 0 none;
+      cursor: pointer;
+      border-radius: 3px;
+      margin-top: 2%;
+  }
+
+  input[type=submit]:hover {
+      color: #fc5f49;
+      transition: color 1s;
+  }
+
+  .register {
+      margin: auto;
+      padding: 16px 0;
+      text-align: center;
+      margin-top: 5%;
+      width: 85%;
+      border-top: 1px solid #C1C3C6;
+  }
+
+  .clearfix {
+      clear: both;
+  }
+
+  #register-link {
+      margin-top: 10px;
+      padding: 6px 25px;
+      /*background: #373E4A;
+      color: #C1C3C6;*/
+      font-weight: bold;
+      border: 0 none;
+      cursor: pointer;
+      border-radius: 3px;
+  }
+  </style>  
+
+  <div id="container-login">
+    <div id="title">
+      <i class="fa-solid fa-arrow-right-to-bracket" style="color: #ffcc00;"></i> Вход
+    </div>
+
+    <form action="{% url 'user:login' %}" method="post">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+        <p>Пожалуйста, введите правильные имя пользователя и пароль</p>
+        {% endif %}
+        
+        <div class="input">
+            <div class="input-addon">
+              <i for="id_username" class="fa-solid fa-user" style="color: #ffcc00;"></i>
+            </div>
+            <!--for="{{ form.username.id_for_label }}" {{form.username}}-->
+            <input style="color: #C1C3C6;" name="username" id="id_username" placeholder="Имя пользователя" type="text" required class="validate" autocomplete="off">
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="input">
+            <div class="input-addon">
+              <i for="id_password" class="fa-solid fa-lock" style="color: #ffcc00;"></i>
+            </div>          
+            <input style="color: #C1C3C6;" name="password" id="id_password" placeholder="Пароль" type="password" required class="validate" autocomplete="off">
+        </div>
+        <!--
+        <div class="remember-me">
+            <input type="checkbox">
+            <span style="color: #DDD">Remember Me</span>
+        </div>
+        -->
+
+        <input type="submit" value="Вход" />
+    </form>
+
+    <!--
+    <div class="forgot-password">
+        <a href="#">Забыли пароль?</a>
+    </div>
+    -->
+    
+
+    <div class="register">
+        У вас нет учетной записи?
+        <a href="{% url 'user:registration' %}"><button id="register-link">Зарегистрироваться</button></a>
+    </div>
+  </div>
+  <div class="cs_height_140 cs_height_lg_80"></div>
+  
+{% endblock %}
